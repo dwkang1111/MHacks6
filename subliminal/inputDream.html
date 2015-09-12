@@ -9,7 +9,8 @@
       bottom: 0; 
       left: 0; 
       height: 45px;
-      background-color: #263238;
+      /*background-color: #263238;*/
+      background-color: #424242;
       width: 100%;
       margin:0;
     }
@@ -59,19 +60,19 @@
       text-decoration: none;
     }
   </style>
-  <div class="header row animated" id="main">
-    <div class="col-md-4">
+  <div class="header row">
+    <div class="col-md-4" style="top:20px;">
       <a class="ion-android-arrow-back" onclick="goHome()"></a>
     </div>
-    <div class="col-md-4 text-center" style="font-size:40px;">
+    <div class="col-md-4 text-center" style="font-size:40px; top:20px;">
       <a href="/">Subliminal</a>
     </div>
-    <div class="col-md-4 text-right">
+    <div class="col-md-4 text-right" style="top:20px;">
       <a class="ion-android-done"></a>
     </div>
   </div>
-  <div class="container-fluid" style="margin-top:50px;">
-    <div class="row" style="margin-top:20px;">
+  <div class="container-fluid">
+    <div class="row" style="margin-top:40px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
         <input type="text" name="title" style="width:100%" autocomplete="off"/>
