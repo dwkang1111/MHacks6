@@ -45,6 +45,14 @@
         transform: rotate(360deg) translate(-150px) rotate(-360deg);
       }
     }
+    @-webkit-keyframes rotate {
+      from {
+        -webkit-transform: rotate(0deg) translate(-150px) rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg) translate(-150px) rotate(-360deg);
+      }
+    }
   </style>
   
   <div class="container-fluid">
@@ -73,7 +81,6 @@
     }
   </script>
 </template>
-
 
 
 <template name="logout">
