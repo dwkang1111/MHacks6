@@ -8,6 +8,13 @@ if (Meteor.isClient) {
   //     return Dreams.find({});
   //   }
   // });
+
+
+  Template.List.helpers({
+    dreams: function () {
+      return Dreams.find({});
+    }
+  });
  
   Template.inputDream.events({
     "submit .tag-list": function (event) {
