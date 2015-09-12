@@ -62,7 +62,6 @@ if (Meteor.isClient) {
         $('#left').css('visibility', 'visible');
         $('#right').css('visibility', 'visible');
 
-
         node = document.getElementById('addhere');
         if(loadedimages){
           while(node.hasChildNodes()){
@@ -77,7 +76,7 @@ if (Meteor.isClient) {
             else{
               for(var obj in result2.sources){
                 for(var objin in result2.sources[obj].result){
-                    $('#addhere').append('<img src="' + result2.sources[obj].result[objin].preview_url + '" class="imgBarimg draggable"/>');             
+                    $('#addhere').append('<img src="' + result2.sources[obj].result[objin].preview_url + '" class="imgBarimg draggable drag-drop"/>');             
                 }
               }
               console.log(result2);
