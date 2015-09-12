@@ -10,3 +10,6 @@ Router.route('/', function () {
 Router.route('/input', function() {
   this.render('InputDream');
 })
+Router.route('/list', function() {
+  this.render('List');
+})
