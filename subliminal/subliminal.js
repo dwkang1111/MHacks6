@@ -31,4 +31,22 @@ if (Meteor.isClient) {
       }
     }
   });
+
+  Template.username.helpers({
+  username: function() {
+    return Meteor.user().profile.username;
+  }
+  });
+
+
+
+
 }
+
+
+
+
+
+
+
+

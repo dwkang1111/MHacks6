@@ -32,6 +32,11 @@
     <div class="text-right nav">
       <a href="/list" style="font-size:20px;">about</a>
     </div>
+    {{#if currentUser}}
+       <div>I am Logged In!</div>
+       <span>My name is: {{> username}}</span>
+       {{> logout}}
+    {{/if}}
     <div class="vertical-center text-center" style="width:100%;">
       <a id="record" href="/input"></a>
     </div>
@@ -60,4 +65,14 @@
       });
     };
   </script>
+</template>
+
+
+
+<template name="logout">
+  <a style="color:yellow" class="logout">Logout</a>
+</template>
+
+<template name="username">
+  <p>{{username}}</p>
 </template>
