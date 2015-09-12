@@ -27,6 +27,8 @@ if (Meteor.isClient) {
         $('#imageBar').height('0px');
         $('#imageBar').animate({height: '+=200px'});
         $('.imgBarimg').height('180px');
+        $('#left').css('visibility', 'visible');
+        $('#right').css('visibility', 'visible');
       }
     }
   });
