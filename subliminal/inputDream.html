@@ -1,15 +1,16 @@
 <template name="inputDream">
   <style>
     .category {
-      font-size: 25px;
+      font-size: 20px;
       color: white;
+      font-weight: 500;
     }
     .tagBar {
       position: absolute; 
       bottom: 0; 
       left: 0; 
-      height: 45px;
-      background-color: #263238;
+      height: 80px;
+      background-color: #424242;
       width: 100%;
       margin:0;
     }
@@ -58,27 +59,34 @@
     a:hover {
       text-decoration: none;
     }
+    .form-control {
+      color: white;
+      font-size: 20px;
+      font-weight: 400;
+    }
   </style>
   <div class="header row animated" id="main">
-    <div class="col-md-4">
+    <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
       <a class="ion-android-arrow-back" onclick="goHome()"></a>
     </div>
-    <div class="col-md-4 text-center" style="font-size:40px;">
+    <div class="col-md-4 text-center" style="font-size:45px; margin-top:20px; margin-bottom:20px;">
       <a href="/">Subliminal</a>
     </div>
-    <div class="col-md-4 text-right">
+    <div class="col-md-4 text-right" style="margin-top:20px; margin-bottom:20px;">
       <a class="ion-android-done"></a>
     </div>
   </div>
-  <div class="container-fluid" style="margin-top:50px;">
+  <div class="container-fluid" style="margin-top:60px;">
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
-        <input type="text" name="title" style="width:100%" autocomplete="off"/>
+        <input class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
       </div>
-      <div class="category col-md-1" style="margin-top:10px;">Summary:</div>
-      <div class="col-md-11" style="margin-top:10px;">
-        <textarea rows="3"></textarea>
+    </div>
+    <div class="row" style="margin-top:20px;">
+      <div class="category col-md-1">Summary:</div>
+      <div class="col-md-11" style="margin-top:5px;">
+        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
       </div>
     </div>
     <div id="imageBar" class="wrapper">
@@ -88,13 +96,13 @@
       </div>
     </div>
     <div class="tagBar row">
-      <div class="category col-md-1" style="padding-left:10px; color:white;">
+      <div class="category col-md-1" style="padding-left:15px; margin-top:30px;">
         Tags: 
       </div>
       <div class="col-md-11">
-        <form id="imagequery" class="tag-list" style="margin-top:5px;">
-          <input type="text" name="tags" style="width:100%"/>
-        </form>
+        <form id="imagequery" class="tag-list" style="margin-top:30px;">
+          <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
+        </form> 
       </div>
     </div>
   </div>

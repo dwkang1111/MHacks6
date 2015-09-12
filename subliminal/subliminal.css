@@ -1,7 +1,8 @@
 body {
-  font-family: 'Roboto';
-  background-color: #315481;
-  background-image: linear-gradient(to bottom, #000040, #918e82 100%);
+  font-family: 'RobotoDraft';
+  font-weight: 400;
+  background-color: #303030 !important;
+  /*background-image: linear-gradient(to bottom, #000040, #918e82 100%);*/
   background-attachment: fixed;
 
   position: absolute;
