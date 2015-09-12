@@ -39,7 +39,7 @@ if (Meteor.isClient) {
         }
         Meteor.call('searchQuery', text, function(err,result){
             for(var obj in result.items){
-                  $('#addhere').append('<img src="' + result.items[obj].link + '" class="imgBarimg"/>');             
+                  $('#addhere').append('<img src="' + result.items[obj].link + '" class="imgBarimg draggable"/>');             
             }
             console.log(result);
           });
