@@ -12,3 +12,4 @@ iron:router
 jquery
 accounts-base
 accounts-password
+http
