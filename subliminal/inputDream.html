@@ -12,6 +12,10 @@
     input {
       height: 35px;
       font-size: 25px;
+      background-color: rgba(0, 0, 0, 0);
+      border: 2px solid white;
+      padding-left: 10px;
+      color: white;
     }
     .tagBar {
       position: absolute; 
@@ -20,7 +24,6 @@
       height: 45px;
       background-color: #263238;
       width: 100%;
-      color: white;
       margin:0;
     }
   </style>
@@ -34,10 +37,12 @@
       </div>
     </div>
     <div class="tagBar row">
-      <div class="category col-md-1" style="padding-left:10px;">Tags: </div>
+      <div class="category col-md-1" style="padding-left:10px; color:white;">
+        Tags: 
+      </div>
       <div class="col-md-11">
         <form class="tag-list" style="margin-top:5px;">
-          <input type="text" name="title" style="width:100%"/>
+          <input type="text" name="tags" style="width:100%"/>
         </form>
       </div>
     </div>

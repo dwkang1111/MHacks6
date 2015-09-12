@@ -14,14 +14,19 @@
     <div class="glass_container text-center" style="width:100%;">
       <h2> Welcome to Subliminal </h2>
       <div style="margin-top:40px;">
-        <a href="/"><img src="facebook.png" class="loginImg" /></a>
+        <img src="facebook.png" class="loginImg" onclick="goHome()"/>
       </div>
       <div>
-        <a href="/"><img src="google.png" class="loginImg" /></a>
+        <img src="google.png" class="loginImg" onclick="goHome()" />
       </div>
       <div style="margin-top:30px; font-size:20px;">
         <a href="/">Or make an account...</a>
       </div>
     </div>
   </div>
+  <script>
+    function goHome() {
+      Router.go('/');
+    }
+  </script>
 </template>
