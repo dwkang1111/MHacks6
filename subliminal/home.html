@@ -76,6 +76,15 @@
     function goAbout() {
       Router.go('/about');
     }
+    $(document).ready(function() {
+      $('#record').hover(function() {
+        $(this).addClass("shadow-z-5");
+        $(this).removeClass("shadow-z-2");
+      }, function() {
+        $(this).addClass("shadow-z-2");
+        $(this).removeClass("shadow-z-5");
+      })
+    })
   </script>
 </template>
 
