@@ -19,7 +19,10 @@
       height: 20px;
       background-color: white;
       border-radius: 10px;
-      position: fixed;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      animation: rotate 15s infinite linear;
     }
     .nav {
       position: absolute;
@@ -27,10 +30,24 @@
       top: 10px;
       color: white;
     }
+    a:hover {
+      text-decoration: none;
+    }
+    /* animation taken from http://lea.verou.me/2012/02/moving-an-element-along-a-circle/ */
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg) translate(-150px) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-150px) rotate(-360deg);
+      }
+    }
   </style>
+  
   <div class="container-fluid">
-    <div class="text-right nav">
-      <a href="/list" style="font-size:20px;">about</a>
+    <div class="text-right nav" style="font-size:25px;">
+      <a href="/list" style="margin-right:10px;">history</a>
+      <a href="/about">about</a>
     </div>
     {{#if currentUser}}
        <div>I am Logged In!</div>
@@ -44,26 +61,28 @@
     <div class="random"></div>
     <div class="random"></div>
   </div>
+
   <script>
     $(document).ready(function(){
-      animateDiv();
+      // animateDiv();
+      
     });
 
-    function makeNewPosition(){
-      // Get viewport dimensions (remove the dimension of the div)
-      var h = $(window).height() - 50;
-      var w = $(window).width() - 50;
-      var nh = Math.floor(Math.random() * h);
-      var nw = Math.floor(Math.random() * w);
-      return [nh,nw];
-    }
+    // function makeNewPosition(){
+    //   // Get viewport dimensions (remove the dimension of the div)
+    //   var h = $(window).height() - 50;
+    //   var w = $(window).width() - 50;
+    //   var nh = Math.floor(Math.random() * h);
+    //   var nw = Math.floor(Math.random() * w);
+    //   return [nh,nw];
+    // }
 
-    function animateDiv(){
-      var newq = makeNewPosition();
-      $('.random').animate({ top: newq[0], left: newq[1] }, "slow", function(){
-        animateDiv();
-      });
-    };
+    // function animateDiv(){
+    //   var newq = makeNewPosition();
+    //   $('.random').animate({ top: newq[0], left: newq[1] }, "slow", function(){
+    //     animateDiv();
+    //   });
+    // };
   </script>
 </template>
 
