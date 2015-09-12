@@ -29,7 +29,11 @@ if (Meteor.isClient) {
         $('.imgBarimg').height('180px');
         //$('.imgBarimg').animate({height: '+=180px'});
 
-        Meteor.call('searchQuery', function(err,result){
+        Meteor.call('searchQuery', text, function(err,result){
+          for(var obj in result.items){
+                $('#addhere').append('<img src="' + result.items[obj].link + '" class="imgBarimg"/>');             
+          }
+
           console.log(result);
         });
       }
@@ -49,12 +53,17 @@ if (Meteor.isClient) {
 
 if(Meteor.isServer) {
   Meteor.methods({
-    searchQuery:function(text){
-        var resultImages = HTTP.get("https://www.googleapis.com/customsearch/v1?key=AIzaSyDU76UofVyeR-zBGXfykO0SoPoUIK1WTps&cx=007694596282040818638:x00ccrp7imi&q=" + text);
-        console.log(resultImages.statusCode);
-        return resultImages;
-  }})
+    searchQuery: function(text){
+        var resultImages = HTTP.get("https://www.googleapis.com/customsearch/v1?searchType=image&key=AIzaSyDU76UofVyeR-zBGXfykO0SoPoUIK1WTps&cx=007694596282040818638:x00ccrp7imi&q=" + text);
+        return resultImages.data;
+    }
+  });
+      
 }
+
+
+
+
 
 
 
