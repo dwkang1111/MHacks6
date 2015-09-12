@@ -30,6 +30,8 @@ if (Meteor.isClient) {
         $('.imgBarimg').height('180px');
         $('#left').css('visibility', 'visible');
         $('#right').css('visibility', 'visible');
+
+
         node = document.getElementById('addhere');
         if(loadedimages){
           while(node.hasChildNodes()){
@@ -37,11 +39,18 @@ if (Meteor.isClient) {
           }
           loadedimages = false;
         }
-        Meteor.call('searchQuery', text, function(err,result){
-            for(var obj in result.items){
-                  $('#addhere').append('<img src="' + result.items[obj].link + '" class="imgBarimg"/>');             
+        Meteor.call('searchQuery', text, function(err,result2){
+            if(result2 == null){
+              $('#addhere').append('<p> There was an error! </p>');             
             }
-            console.log(result);
+            else{
+              for(var obj in result2.sources){
+                for(var objin in result2.sources[obj].result){
+                    $('#addhere').append('<img src="' + result2.sources[obj].result[objin].preview_url + '" class="imgBarimg draggable"/>');             
+                }
+              }
+              console.log(result2);
+            }
           });
         loadedimages = true;
       }
@@ -59,7 +68,7 @@ if (Meteor.isClient) {
 if(Meteor.isServer) {
   Meteor.methods({
     searchQuery: function(text){
-        var resultImages = HTTP.get("https://www.googleapis.com/customsearch/v1?searchType=image&key=AIzaSyDU76UofVyeR-zBGXfykO0SoPoUIK1WTps&cx=007694596282040818638:x00ccrp7imi&q=" + text);
+        var resultImages = HTTP.get("http://freeimages.pictures/api/user/7606117490679026/?sources=pixabay|google&format=json&keyword=" + text);
         return resultImages.data;
     }
   });
