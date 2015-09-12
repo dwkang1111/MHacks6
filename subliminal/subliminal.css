@@ -1,8 +1,8 @@
 /* CSS declarations go here */
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto';
   background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+  background-image: linear-gradient(to bottom, #000040, #918e82 100%);
   background-attachment: fixed;
 
   position: absolute;
