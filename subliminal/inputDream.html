@@ -5,17 +5,41 @@
       border-radius: 10px;
       padding: 20px 50px 50px 50px;
     }
-    span {
+    .category {
       font-size: 25px;
       color: white;
     }
+    input {
+      height: 35px;
+      font-size: 25px;
+    }
+    .tagBar {
+      position: absolute; 
+      bottom: 0; 
+      left: 0; 
+      height: 45px;
+      background-color: #263238;
+      width: 100%;
+      color: white;
+      margin:0;
+    }
   </style>
   <div class="container-fluid">
-    <div style="margin-top:20px;">
-      <span>Title: </span>
-      <form class="new-title">
-        <input type="text" name="title" placeholder="Title" />
-      </form>
+    <div class="row" style="margin-top:20px;">
+      <div class="category col-md-1">Title:</div>
+      <div class="col-md-11">
+        <form class="new-title">
+          <input type="text" name="title" style="width:100%"/>
+        </form>
+      </div>
+    </div>
+    <div class="tagBar row">
+      <div class="category col-md-1" style="padding-left:10px;">Tags: </div>
+      <div class="col-md-11">
+        <form class="tag-list" style="margin-top:5px;">
+          <input type="text" name="title" style="width:100%"/>
+        </form>
+      </div>
     </div>
   </div>
   <script>
