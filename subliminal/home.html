@@ -24,6 +24,11 @@
   </style>
   <div class="container vertical-center" style="width:600px;">
     <div class="text-center" style="width:100%;">
+      {{#if currentUser}}
+       <div>I am Logged In!</div>
+       <span>My name is: {{> username}}</span>
+       {{> logout}}
+      {{/if}}
       <a id="record" href="/input"></a>
     </div>
     <!-- How do I animate multiple divs easily? -->
@@ -51,4 +56,14 @@
         });
     };
   </script>
+</template>
+
+
+
+<template name="logout">
+  <a style="color:yellow" class="logout">Logout</a>
+</template>
+
+<template name="username">
+  <p>{{username}}</p>
 </template>

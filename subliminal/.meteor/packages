@@ -10,3 +10,5 @@ insecure
 twbs:bootstrap
 iron:router
 jquery
+accounts-base
+accounts-password

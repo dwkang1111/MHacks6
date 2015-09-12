@@ -29,4 +29,22 @@ if (Meteor.isClient) {
       //$('.imgBarimg').animate({height: '+=180px'});
     }
   });
+
+  Template.username.helpers({
+  username: function() {
+    return Meteor.user().profile.username;
+  }
+  });
+
+
+
+
 }
+
+
+
+
+
+
+
+
