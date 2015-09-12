@@ -1,23 +1,30 @@
 <template name="About">
   <style>
-    .about {
-      height: 100px;
-      font-size: 20px;
-    }
     a {
-      color: white;
+      color: #F2EEB3;
     }
     a:hover {
       color: white;
       text-decoration: none;
     }
+    .panel {
+      background-color: #8C6954;
+      border-radius: 10px;
+      padding: 30px 30px 30px 30px;
+      color: black;
+      font-size: 20px;
+      width: 750px;
+      height: auto;
+    }
   </style>
-  <div class="header text-center" style="position:fixed; font-size:40px;">
-    <a href="/">Subliminal</a>
+  <div class="header text-center" style="position:absolute; font-size:45px;">
+    <div style="margin-top:20px;">
+      <a href="/"> Subliminal </a>
+    </div>
   </div>
   <div class="vertical-center">
-    <div class="container glass_container text-center about">
-      Welcome to Subliminal, a website dedicated to helping you record and analyze your dreams. Simply press the big red circle to record a new dream you had, and the app will take care of the rest for you.
+    <div class="container panel text-center about shadow-z-2" style="line-height:200%;">
+      Welcome to Subliminal, a simple yet beautiful website dedicated to helping you record your dreams via text and images as well as analyze your dreams. Simply press the big red circle to record a new dream you had, and the app will take care of the rest. <br/> Enjoy!
     </div>
   </div>
 </template>

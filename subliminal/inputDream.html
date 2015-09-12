@@ -16,7 +16,7 @@
     }
     #imageBar {
       position: absolute;
-      bottom: 45px;
+      bottom: 80px;
       left: 0px;
       height: 0px;
       width: 100%;
@@ -37,7 +37,7 @@
       overflow-x: scroll;
       overflow-y: hidden;
       white-space: nowrap;
-      /*overflow: hidden;*/
+      overflow: hidden;
     }
     .imageDiv img {
       box-shadow: 1px 1px 10px #999;
@@ -55,10 +55,9 @@
       position: relative;
     }
     a {
-      font-size: 40px;
-      margin-top: 5px;
+      font-size: 45px;
       cursor: pointer;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 1);
     }
     a:hover {
       text-decoration: none;
@@ -97,21 +96,6 @@
     }
 
   </style>
-<<<<<<< HEAD
-  <div class="header row">
-    <div class="col-md-4">
-      <a class="ion-android-arrow-back" onclick="goHome()"></a>
-    </div>
-    <div class="col-md-4 text-center" style="font-size:40px;">
-      <a href="/">Subliminal</a>
-    </div>
-    <div class="col-md-4 text-right">
-      <a class="ion-android-done add-dream"></a>
-    </div>
-  </div>
-=======
-  
->>>>>>> master
   <div class="container-fluid" style="margin-top:50px;">
     <div class="header row">
       <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
@@ -121,23 +105,27 @@
         <a href="/">Subliminal</a>
       </div>
       <div class="col-md-4 text-right" style="margin-top:20px; margin-bottom:20px;">
-        <a class="ion-android-done"></a>
+        <a class="ion-android-done add-dream"></a>
       </div>
     </div>
-    <div class="row" style="margin-top:100px;">
+    <div class="col-md-4 text-center" style="margin-top:26px;">
+      <a href="/">Subliminal</a>
+    </div>
+    <div class="col-md-4 text-right" style="margin-top:26px;">
+      <a class="ion-android-done"></a>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row" style="margin-top:30px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
-<<<<<<< HEAD
-        <input type="text" id="title_input" name="title" style="width:100%" autocomplete="off"/>
-=======
-        <input class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
+        <input id="title_input" class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
       </div>
     </div>
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Summary:</div>
       <div class="col-md-11" style="margin-top:5px;">
         <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
->>>>>>> master
       </div>
     </div>
     <div class="dreamTemplate"> 
@@ -151,7 +139,7 @@
       <div id="addhere" class="scrolls">
       </div>
     </div>
-    <div class="tagBar row">
+    <div class="tagBar row shadow-z-2">
       <div class="category col-md-1" style="padding-left:15px; margin-top:30px;">
         Tags: 
       </div>

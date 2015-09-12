@@ -1,10 +1,5 @@
 <template name="Home">
   <style>
-    .glass_container {
-      background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 10px;
-      padding: 20px 50px 50px 50px;
-    }
     #record {
       height: 80px;
       width: 80px;
@@ -17,7 +12,7 @@
     .random {
       width: 20px;
       height: 20px;
-      background-color: white;
+      background-color: #F2EEB3;
       border-radius: 10px;
       position: absolute;
       left: 50%;
@@ -43,6 +38,14 @@
       }
       to {
         transform: rotate(360deg) translate(-150px) rotate(-360deg);
+      }
+    }
+    @-webkit-keyframes rotate {
+      from {
+        -webkit-transform: rotate(0deg) translate(-150px) rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg) translate(-150px) rotate(-360deg);
       }
     }
   </style>
@@ -73,7 +76,6 @@
     }
   </script>
 </template>
-
 
 
 <template name="logout">
