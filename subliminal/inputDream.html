@@ -1,23 +1,16 @@
 <template name="inputDream">
   <style>
     .category {
-      font-size: 25px;
+      font-size: 20px;
       color: white;
-    }
-    input {
-      height: 35px;
-      font-size: 25px;
-      background-color: rgba(0, 0, 0, 0);
-      border: 2px solid white;
-      padding-left: 10px;
-      color: white;
+      font-weight: 500;
     }
     .tagBar {
       position: absolute; 
       bottom: 0; 
       left: 0; 
-      height: 45px;
-      background-color: #263238;
+      height: 80px;
+      background-color: #424242;
       width: 100%;
       margin:0;
     }
@@ -65,27 +58,41 @@
       font-size: 40px;
       margin-top: 5px;
       cursor: pointer;
+      color: rgba(255, 255, 255, 0.7);
     }
     a:hover {
       text-decoration: none;
+      color: white;
+    }
+    .form-control {
+      color: white;
+      font-size: 20px;
+      font-weight: 400;
     }
   </style>
-  <div class="header row">
-    <div class="col-md-4">
-      <a class="ion-android-arrow-back" onclick="goHome()"></a>
-    </div>
-    <div class="col-md-4 text-center" style="font-size:40px;">
-      <a href="/">Subliminal</a>
-    </div>
-    <div class="col-md-4 text-right">
-      <a class="ion-android-done"></a>
-    </div>
-  </div>
+  
   <div class="container-fluid" style="margin-top:50px;">
-    <div class="row" style="margin-top:20px;">
+    <div class="header row">
+      <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
+        <a class="ion-android-arrow-back" onclick="goHome()"></a>
+      </div>
+      <div class="col-md-4 text-center" style="font-size:45px; margin-top:20px; margin-bottom:20px;">
+        <a href="/">Subliminal</a>
+      </div>
+      <div class="col-md-4 text-right" style="margin-top:20px; margin-bottom:20px;">
+        <a class="ion-android-done"></a>
+      </div>
+    </div>
+    <div class="row" style="margin-top:100px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
-        <input type="text" name="title" style="width:100%" autocomplete="off"/>
+        <input class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px;">
+      <div class="category col-md-1">Summary:</div>
+      <div class="col-md-11" style="margin-top:5px;">
+        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
       </div>
     </div>
     <div id="imageBar" class="wrapper">
@@ -95,13 +102,13 @@
       </div>
     </div>
     <div class="tagBar row">
-      <div class="category col-md-1" style="padding-left:10px; color:white;">
+      <div class="category col-md-1" style="padding-left:15px; margin-top:30px;">
         Tags: 
       </div>
       <div class="col-md-11">
-        <form id="imagequery" class="tag-list" style="margin-top:5px;">
-          <input type="text" name="tags" style="width:100%"/>
-        </form>
+        <form id="imagequery" class="tag-list" style="margin-top:30px;">
+          <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
+        </form> 
       </div>
     </div>
   </div>
@@ -109,6 +116,7 @@
     function goHome() {
       Router.go('/');
     }
+
     $(document).ready(function() {
       $('#left').click(function() {
         event.preventDefault();
