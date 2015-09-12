@@ -1,0 +1,54 @@
+<template name="Home">
+  <style>
+    .glass_container {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      padding: 20px 50px 50px 50px;
+    }
+    #record {
+      height: 80px;
+      width: 80px;
+      background-color: red;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 40px;
+    }
+    .random {
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      border-radius: 10px;
+      position: fixed;
+    }
+  </style>
+  <div class="container vertical-center" style="width:600px;">
+    <div class="text-center" style="width:100%;">
+      <a id="record" href="/input"></a>
+    </div>
+    <!-- How do I animate multiple divs easily? -->
+    <div class="random"></div>
+    <div class="random"></div>
+  </div>
+  <script>
+    $(document).ready(function(){
+      animateDiv();
+    });
+
+    function makeNewPosition(){
+        // Get viewport dimensions (remove the dimension of the div)
+        var h = $(window).height() - 50;
+        var w = $(window).width() - 50;
+        var nh = Math.floor(Math.random() * h);
+        var nw = Math.floor(Math.random() * w);
+        return [nh,nw];
+    }
+
+    function animateDiv(){
+        var newq = makeNewPosition();
+        $('.random').animate({ top: newq[0], left: newq[1] }, "slow", function(){
+          animateDiv();
+        });
+    };
+  </script>
+</template>

@@ -1,0 +1,32 @@
+<template name="LogIn">
+  <style>
+    .glass_container {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      padding: 20px 50px 50px 50px;
+    }
+    .loginImg {
+      height:70px;
+      width:auto;
+    }
+  </style>
+  <div class="container vertical-center" style="width:600px;">
+    <div class="glass_container text-center" style="width:100%;">
+      <h2> Welcome to Subliminal </h2>
+      <div style="margin-top:40px;">
+        <img src="facebook.png" class="loginImg" onclick="goHome()"/>
+      </div>
+      <div>
+        <img src="google.png" class="loginImg" onclick="goHome()" />
+      </div>
+      <div style="margin-top:30px; font-size:20px;">
+        <a href="/">Or make an account...</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function goHome() {
+      Router.go('/');
+    }
+  </script>
+</template>

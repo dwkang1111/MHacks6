@@ -1,23 +1,32 @@
+Dreams = new Mongo.Collection("dreams");
+ 
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+  // This code only runs on the client
+  // Template.body.helpers({
+  //   dreams: function () {
+  //     return Dreams.find({});
+  //   }
+  // });
+ 
+  Template.inputDream.events({
+    "submit .tag-list": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+      // Get value from form element
+      var text = event.target.tags.value;
+      // Insert a task into the collection
+      // Dreams.insert({
+      //   tags: text,
+      //   createdAt: new Date() // current time
+      // });
+ 
+      // Clear form
+      event.target.tags.value = "";
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+      $('#imageBar').height('0px');
+      $('#imageBar').animate({height: '+=200px'});
+      $('.imgBarimg').height('180px');
+      //$('.imgBarimg').animate({height: '+=180px'});
     }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
   });
 }
