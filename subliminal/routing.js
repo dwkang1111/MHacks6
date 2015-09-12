@@ -13,3 +13,6 @@ Router.route('/input', function() {
 Router.route('/list', function() {
   this.render('List');
 })
+Router.route('/about', function() {
+  this.render('About');
+})

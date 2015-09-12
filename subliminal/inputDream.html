@@ -1,10 +1,5 @@
 <template name="inputDream">
   <style>
-    .glass_container {
-      background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 10px;
-      padding: 20px 50px 50px 50px;
-    }
     .category {
       font-size: 25px;
       color: white;
@@ -45,7 +40,8 @@
     .scrolls {
       overflow-x: scroll;
       overflow-y: hidden;
-      white-space: nowrap
+      white-space: nowrap;
+      /*overflow: hidden;*/
     }
     .imageDiv img {
       box-shadow: 1px 1px 10px #999;
@@ -61,23 +57,25 @@
       margin: auto; 
       text-align: center; 
       position: relative;
-      margin-bottom: 20px !important;
     }
-    i {
+    a {
       font-size: 40px;
       margin-top: 5px;
       cursor: pointer;
     }
+    a:hover {
+      text-decoration: none;
+    }
   </style>
   <div class="header row">
     <div class="col-md-4">
-      <i class="ion-android-arrow-back" onclick="goHome()"></i>
+      <a class="ion-android-arrow-back" onclick="goHome()"></a>
     </div>
     <div class="col-md-4 text-center" style="font-size:40px;">
-      Subliminal
+      <a href="/">Subliminal</a>
     </div>
     <div class="col-md-4 text-right">
-      <i class="ion-android-done"></i>
+      <a class="ion-android-done"></a>
     </div>
   </div>
   <div class="container-fluid" style="margin-top:50px;">
@@ -88,6 +86,8 @@
       </div>
     </div>
     <div id="imageBar" class="wrapper">
+      <a id="left" class="ion-ios-arrow-back" style="position:absolute; bottom:70px; left:10px; color:white;"></a>
+      <a id="right" class="ion-ios-arrow-forward" style="position:absolute; bottom:70px; right:10px; color:white;"></a>
       <div class="scrolls">
         <img src="bruh.jpeg" class="imgBarimg" />
         <img src="bruh.jpeg" class="imgBarimg" />
@@ -116,5 +116,19 @@
     function goHome() {
       Router.go('/');
     }
+    $(document).ready(function() {
+      $('#left').click(function() {
+        event.preventDefault();
+        $('.scrolls').animate({
+          marginLeft: "+=600px"
+        }, "fast"); 
+      });
+      $('#right').click(function() {
+        event.preventDefault();
+        $('.scrolls').animate({
+          marginLeft: "-=600px"
+        }, "2000ms", "swing");
+     });
+    })
   </script>
 </template>

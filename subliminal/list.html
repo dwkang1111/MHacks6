@@ -1,40 +1,22 @@
 <template name="List">
   <style>
-    .glass_container {
-      background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 10px;
-      padding: 20px 50px 50px 50px;
-    }
-    #record {
-      height: 80px;
-      width: 80px;
-      background-color: red;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 40px;
-    }
-    .random {
-      width: 20px;
-      height: 20px;
-      background-color: white;
-      border-radius: 10px;
-      position: fixed;
-    }
-    i.ion-android-menu {
+    a.ion-android-menu {
       font-size: 40px;
       cursor: pointer;
       margin-top: 5px;
     }
+    a:hover{
+      text-decoration: none;
+    }
   </style>
   <div class="header row">
-    <div class="col-md-4 text-left">
-      <i class="ion-android-menu" onclick="goHome()"></i>
+    <div class="col-md-4 col-sm-4 text-left">
+      <a class="ion-android-menu" onclick="goHome()"></a>
     </div>
-    <div class="col-md-4 text-center" style="font-size:40px;">
-      Subliminal
+    <div class="col-md-4 col-sm-4 text-center" style="font-size:40px;">
+      <a onclick="goHome()" style="cursor:pointer;">Subliminal</a>
     </div>
-    <div class="col-md-4 text-right">
+    <div class="col-md-4 col-sm-4 text-right">
     </div>
   </div>
   <div class="container" style="width:1000px; margin-top:20px;">
@@ -66,20 +48,25 @@
       padding: 10px;
       font-size: 20px;
     }
+    i {
+      font-size: 20px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
   </style>
   <div class="mod row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       Aug. 2, 2015 
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-8">
       Title would go here 
     </div>
-    <div class="col-md-1 text-right" style="padding-right:0">
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <div class="col-md-1 col-sm-1 text-right" style="padding-right:0">
+      <i class="ion-android-close"></i>
     </div>
-    <div class="col-md-12 row" style="margin-top:10px;"> 
-      <div class="col-md-2">Tags:</div>
-      <div class="col-md-10">
+    <div class="col-md-12 col-sm-12 row" style="margin-top:10px;"> 
+      <div class="col-md-2 col-sm-2">Tags:</div>
+      <div class="col-md-10 col-sm-10">
         <table>
           <tr>
             <td>
