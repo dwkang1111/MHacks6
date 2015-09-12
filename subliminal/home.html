@@ -21,9 +21,18 @@
       border-radius: 10px;
       position: fixed;
     }
+    .nav {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: white;
+    }
   </style>
-  <div class="container vertical-center" style="width:600px;">
-    <div class="text-center" style="width:100%;">
+  <div class="container-fluid">
+    <div class="text-right nav">
+      <a href="/list" style="font-size:20px;">about</a>
+    </div>
+    <div class="vertical-center text-center" style="width:100%;">
       <a id="record" href="/input"></a>
     </div>
     <!-- How do I animate multiple divs easily? -->
@@ -36,19 +45,19 @@
     });
 
     function makeNewPosition(){
-        // Get viewport dimensions (remove the dimension of the div)
-        var h = $(window).height() - 50;
-        var w = $(window).width() - 50;
-        var nh = Math.floor(Math.random() * h);
-        var nw = Math.floor(Math.random() * w);
-        return [nh,nw];
+      // Get viewport dimensions (remove the dimension of the div)
+      var h = $(window).height() - 50;
+      var w = $(window).width() - 50;
+      var nh = Math.floor(Math.random() * h);
+      var nw = Math.floor(Math.random() * w);
+      return [nh,nw];
     }
 
     function animateDiv(){
-        var newq = makeNewPosition();
-        $('.random').animate({ top: newq[0], left: newq[1] }, "slow", function(){
-          animateDiv();
-        });
+      var newq = makeNewPosition();
+      $('.random').animate({ top: newq[0], left: newq[1] }, "slow", function(){
+        animateDiv();
+      });
     };
   </script>
 </template>
