@@ -1,4 +1,5 @@
 Dreams = new Mongo.Collection("dreams");
+var loadedimages = false;
  
 if (Meteor.isClient) {
   // This code only runs on the client
@@ -29,13 +30,20 @@ if (Meteor.isClient) {
         $('.imgBarimg').height('180px');
         //$('.imgBarimg').animate({height: '+=180px'});
 
-        Meteor.call('searchQuery', text, function(err,result){
-          for(var obj in result.items){
-                $('#addhere').append('<img src="' + result.items[obj].link + '" class="imgBarimg"/>');             
+        node = document.getElementById('addhere');
+        if(loadedimages){
+          while(node.hasChildNodes()){
+            node.removeChild(node.lastChild);
           }
-
-          console.log(result);
-        });
+          loadedimages = false;
+        }
+        Meteor.call('searchQuery', text, function(err,result){
+            for(var obj in result.items){
+                  $('#addhere').append('<img src="' + result.items[obj].link + '" class="imgBarimg"/>');             
+            }
+            console.log(result);
+          });
+        loadedimages = true;
       }
     }
   });
