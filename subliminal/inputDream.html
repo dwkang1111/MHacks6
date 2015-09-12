@@ -55,9 +55,11 @@
       font-size: 40px;
       margin-top: 5px;
       cursor: pointer;
+      color: rgba(255, 255, 255, 0.7);
     }
     a:hover {
       text-decoration: none;
+      color: white;
     }
     .form-control {
       color: white;
@@ -65,19 +67,20 @@
       font-weight: 400;
     }
   </style>
-  <div class="header row animated" id="main">
-    <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
-      <a class="ion-android-arrow-back" onclick="goHome()"></a>
+  
+  <div class="container-fluid" style="margin-top:50px;">
+    <div class="header row">
+      <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
+        <a class="ion-android-arrow-back" onclick="goHome()"></a>
+      </div>
+      <div class="col-md-4 text-center" style="font-size:45px; margin-top:20px; margin-bottom:20px;">
+        <a href="/">Subliminal</a>
+      </div>
+      <div class="col-md-4 text-right" style="margin-top:20px; margin-bottom:20px;">
+        <a class="ion-android-done"></a>
+      </div>
     </div>
-    <div class="col-md-4 text-center" style="font-size:45px; margin-top:20px; margin-bottom:20px;">
-      <a href="/">Subliminal</a>
-    </div>
-    <div class="col-md-4 text-right" style="margin-top:20px; margin-bottom:20px;">
-      <a class="ion-android-done"></a>
-    </div>
-  </div>
-  <div class="container-fluid" style="margin-top:60px;">
-    <div class="row" style="margin-top:20px;">
+    <div class="row" style="margin-top:100px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
         <input class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
