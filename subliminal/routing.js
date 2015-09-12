@@ -4,3 +4,6 @@ Router.route('/login', function () {
 Router.route('/', function () {
   this.render('Home');
 });
+Router.route('/input', function() {
+  this.render('InputDream');
+})
