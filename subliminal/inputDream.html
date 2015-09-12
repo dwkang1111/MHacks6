@@ -69,6 +69,33 @@
       font-size: 20px;
       font-weight: 400;
     }
+    .dreamTemplate {
+        width: 900px;
+        height: 400px;
+        margin: 0 auto;
+        margin-top:80px;
+        background-color: #5E6A75;
+    }
+    #dreamTemplatePicture1, #dreamTemplatePicture2, #dreamTemplatePicture3 {
+        width: 33.3333%;
+        height:100%;
+        float:left;
+        text-align: center;
+        font-size: x-large;
+        border-style: dashed;
+        border-width: 2px;
+        border-color: white;
+        overflow: hidden;
+    }
+    .drop-active {
+      border-color: #aaa;
+    }
+    .drop-target {
+      background-color: #29e;
+      border-color: #fff;
+      border-style: solid;
+    }
+
   </style>
   
   <div class="container-fluid" style="margin-top:50px;">
@@ -94,6 +121,11 @@
       <div class="col-md-11" style="margin-top:5px;">
         <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
       </div>
+    </div>
+    <div class="dreamTemplate"> 
+        <div id="dreamTemplatePicture1" class="dropzone"> </div>
+        <div id="dreamTemplatePicture2" class="dropzone"> </div>
+        <div id="dreamTemplatePicture3" class="dropzone"> </div>
     </div>
     <div id="imageBar" class="wrapper">
       <a id="left" class="ion-ios-arrow-back" style="visibility:hidden; position:absolute; bottom:70px; left:10px; color:white;"></a>
@@ -159,6 +191,44 @@
       }
 
     window.dragMoveListener = dragMoveListener;
+
+    interact('.dropzone').dropzone({
+      // only accept elements matching this CSS selector
+      accept: '.imgBarimg',
+
+      // listen for drop related events:
+      ondropactivate: function (event) {
+        // add active dropzone feedback
+        event.target.classList.add('drop-active');
+      },
+      ondragenter: function (event) {
+        var draggableElement = event.relatedTarget,
+            dropzoneElement = event.target;
+
+        // feedback the possibility of a drop
+        dropzoneElement.classList.add('drop-target');
+        draggableElement.classList.add('can-drop');
+        draggableElement.textContent = 'Dragged in';
+      },
+      ondragleave: function (event) {
+        // remove the drop feedback style
+        event.target.classList.remove('drop-target');
+        event.relatedTarget.classList.remove('can-drop');
+        event.relatedTarget.textContent = 'Dragged out';
+      },
+      ondrop: function (event) {
+        console.log(event.target.id);
+        console.log(event.relatedTarget.src);
+        $('#' + event.target.id).css("background-image", 'url(' + event.relatedTarget.src + ')');
+        $('#' + event.target.id).css("background-size", "auto 100%");  
+        $('#' + event.target.id).css("border-style", "none");  
+      },
+      ondropdeactivate: function (event) {
+        // remove active dropzone feedback
+        event.target.classList.remove('drop-active');
+        event.target.classList.remove('drop-target');
+      }
+    });
 
   </script>
 </template>
