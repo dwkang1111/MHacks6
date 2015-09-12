@@ -12,5 +12,6 @@ iron:router
 jquery
 accounts-base
 accounts-password
+pagebakers:ionicons
 http
 ryanswapp:interactjs

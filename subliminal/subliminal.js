@@ -28,8 +28,8 @@ if (Meteor.isClient) {
         $('#imageBar').height('0px');
         $('#imageBar').animate({height: '+=200px'});
         $('.imgBarimg').height('180px');
-        //$('.imgBarimg').animate({height: '+=180px'});
-
+        $('#left').css('visibility', 'visible');
+        $('#right').css('visibility', 'visible');
         node = document.getElementById('addhere');
         if(loadedimages){
           while(node.hasChildNodes()){
@@ -49,13 +49,10 @@ if (Meteor.isClient) {
   });
 
   Template.username.helpers({
-  username: function() {
-    return Meteor.user().profile.username;
-  }
+    username: function() {
+      return Meteor.user().profile.username;
+    }
   });
-
-
-
 
 }
 
