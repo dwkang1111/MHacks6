@@ -121,8 +121,12 @@
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Summary:</div>
       <div class="col-md-11" style="margin-top:5px;">
-        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
+        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="What did you dream about?"></textarea>
       </div>
+    </div>
+    <div class="row" style="margin-top:20px;">
+      <div class="category col-md-1">Date:</div>
+      <div class="col-md-11"><input data-provide="datepicker"></div>
     </div>
     <div class="dreamTemplate"> 
         <div id="dreamTemplatePicture1" class="dropzone"> </div>
@@ -164,6 +168,7 @@
       $('.container-fluid').fadeIn("slow", function() {
         $('.header').fadeIn("slow");
       });
+
       $('#left').click(function() {
         event.preventDefault();
         $('.scrolls').animate({
