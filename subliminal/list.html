@@ -14,6 +14,7 @@
     }
     .add-icon{
       font-size: 40px;
+      cursor: pointer;
     }
   </style>
   <div class="header row" style="display:none;">
@@ -24,7 +25,7 @@
       <a onclick="goHome()" style="cursor:pointer;">Subliminal</a>
     </div>
     <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
-      <a class="ion-android-add-circle add-icon" style="margin-right:10px;" onclick="goInputDream()"></a>
+      <a class="ion-android-add add-icon" style="margin-right:10px;" onclick="goInputDream()"></a>
     </div>
     <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
     </div>
@@ -40,7 +41,7 @@
   </div>
   <script>
   function goInputDream() {
-      $(".ion-android-home").fadeOut("slow", function() {
+      $(".ion-android-add").fadeOut("slow", function() {
         $(".header").fadeOut();
         $(".container").fadeOut(function() {
           Router.go('/input');
@@ -82,18 +83,20 @@
     }
   </style>
   <div class="mod shadow-z-2">
-    <a href="/input" style="color:black;">
-      <div class="row" style="height:40px;">
+    <div class="row" style="height:40px;">
+      <a href="/input" style="color:black;">
         <div class="col-md-2 col-sm-2 text-right">
           {{date}}
         </div>
         <div class="col-md-9 col-sm-9">
           {{title}}
         </div>
-        <div class="col-md-1 col-sm-1 text-right">
-          <i class="ion-android-close"></i>
-        </div>
+      </a>
+      <div class="col-md-1 col-sm-1 text-right">
+        <i id="killList" class="ion-android-close"></i>
       </div>
+    </div>
+    <a href="/input" style="color:black;">
       <div class="row">
         <div class="col-md-12 col-sm-12 row" style="margin-top:10px;"> 
           <div class="col-md-2 col-sm-2 text-right">Tags:</div>

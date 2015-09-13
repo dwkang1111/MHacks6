@@ -10,6 +10,11 @@ if (Meteor.isClient) {
       return Session.get('tags_list_temp');
     }
   });
+  Template.List.events({
+    'click #killList':function(event) {
+        Dreams.remove(this._id);
+    }
+  })
 
   Template.inputDream.helpers({
     tags_list_temp: function () {
