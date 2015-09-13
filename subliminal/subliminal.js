@@ -4,9 +4,33 @@ var loadedimages = false;
 if (Meteor.isClient) {
 
   Template.inputDream.events({
+    "click .add-dream": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+      console.log("add-dream firing");
+ 
+      // Get value from form element
+      var title = $( "#title_input" ).val();
+      var tags = [{'name':'tag1'},{'name':'tag2'}]
+      console.log(title);
+       
+      // Insert a task into the collection
+      Dreams.insert({
+        title: title,
+        date: new Date(), // current time
+        tags: tags
+      });
+ 
+      // Clear form
+      // event.target.title.value = "";
+    }
+  });
+ 
+  Template.inputDream.events({
     "submit .tag-list": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
+      console.log("sumbit tag-list firing");
       // Get value from form element
       var text = event.target.tags.value;
       if(text != "") {

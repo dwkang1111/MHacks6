@@ -74,11 +74,10 @@
   </style>
   <div class="mod row">
     <div class="col-md-3 col-sm-3">
-      Aug. 2, 2015 
       {{date}}
     </div>
     <div class="col-md-8 col-sm-8">
-      Title would go here 
+      Title:
       {{title}}
     </div>
     <div class="col-md-1 col-sm-1 text-right" style="padding-right:0">
@@ -98,6 +97,11 @@
             <td>
               {{> tag name="sleep"}}
             </td>
+            {{#each tags}}
+              <td>
+                {{> tag}}
+              </td>
+            {{/each}}
           </tr>
         </table>
       </div>
