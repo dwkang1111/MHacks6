@@ -11,6 +11,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.inputDream.helpers({
+    tags_list_temp: function () {
+      return Session.get('tags_list_temp');
+    }
+  });
+
 
   Template.inputDream.rendered=function() {
     $('#my-datepicker').datepicker();
