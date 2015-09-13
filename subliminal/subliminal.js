@@ -32,11 +32,14 @@ if (Meteor.isClient) {
       var title = $( "#title_input" ).val();
       // var tags = [{'name':'tag1'},{'name':'tag2'}]
       console.log(title);
+
+      var date_given = $( "#my-datepicker" ).val();  //from date_picker
+      console.log(date_given);
        
       // Insert a task into the collection
       Dreams.insert({
         title: title,
-        date: new Date(), // current time
+        date: date_given,     
         tags: Session.get('tags_list_temp')
       });
  
@@ -404,13 +407,6 @@ if (Meteor.isClient) {
       console.log("new_tags_list_temp",new_tags_list_temp);
       Session.set('tags_list_temp', old_tags_list_temp);
       if(text != "") {
-
-        // Insert a task into the collection
-        Dreams.insert({
-          tags: text,
-          createdAt: new Date() // current time
-        });
-        console.log(Dreams);
    
         // Clear form
         event.target.tags.value = "";
@@ -438,7 +434,6 @@ if (Meteor.isClient) {
                     $('#addhere').append('<img src="' + result2.sources[obj].result[objin].preview_url + '" class="imgBarimg draggable drag-drop"/>');             
                 }
               }
-              console.log(result2);
             }
           });
         loadedimages = true;
@@ -463,7 +458,6 @@ if(Meteor.isServer) {
   });
       
 }
-
 
 
 
