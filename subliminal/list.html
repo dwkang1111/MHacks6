@@ -23,7 +23,7 @@
     <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
     </div>
   </div>
-  <div class="container" style="width:1000px; margin-top:30px; display:none;">
+  <div class="container" style="width:1000px; margin-top:50px; display:none;">
     <div style="width:100%;">
 
       {{#each dreams}}
@@ -54,11 +54,12 @@
   <style>
     .mod {
       width: 100%;
-      background-color: #9999cc;
+      background-color: #8C6954;
       height: 100px;
-      border-bottom: 1px solid white;
       padding: 10px;
       font-size: 20px;
+      margin-bottom: 20px;
+      color: black;
     }
     i {
       font-size: 20px;
@@ -66,30 +67,35 @@
       cursor: pointer;
     }
   </style>
-  <div class="mod row">
-    <div class="col-md-3 col-sm-3">
-      {{date}}
-    </div>
-    <div class="col-md-8 col-sm-8">
-      Title:
-      {{title}}
-    </div>
-    <div class="col-md-1 col-sm-1 text-right" style="padding-right:0">
-      <i class="ion-android-close"></i>
-    </div>
-    <div class="col-md-12 col-sm-12 row" style="margin-top:10px;"> 
-      <div class="col-md-2 col-sm-2">Tags:</div>
-      <div class="col-md-10 col-sm-10">
-        <table>
-          <tr>
-            {{#each tags}}
-              <td>
-                {{> tag_template}}
-              </td>
-            {{/each}}
-          </tr>
-        </table>
+  <div class="mod shadow-z-2">
+    <a href="/input" style="color:black;">
+      <div class="row" style="height:40px;">
+        <div class="col-md-2 col-sm-2 text-right">
+          {{date}}
+        </div>
+        <div class="col-md-9 col-sm-9">
+          {{title}}
+        </div>
+        <div class="col-md-1 col-sm-1 text-right">
+          <i class="ion-android-close"></i>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 row" style="margin-top:10px;"> 
+          <div class="col-md-2 col-sm-2 text-right">Tags:</div>
+          <div class="col-md-10 col-sm-10">
+            <table>
+              <tr>
+                {{#each tags}}
+                  <td>
+                    {{> tag_template}}
+                  </td>
+                {{/each}}
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </a>
   </div>
 </template>

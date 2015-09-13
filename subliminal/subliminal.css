@@ -10,8 +10,7 @@ html, body {
 body {
   font-family: 'RobotoDraft';
   font-weight: 400 !important;
-  background-color: #999999 ;
-  /*background-color: #260126 !important;*/
+  background-color: #260126 !important;
   /*background-image: url("star.jpg");*/
   /*background-size: auto 100%;*/
   /*background-image: linear-gradient(to bottom, #000040, #918e82 100%);*/
@@ -47,8 +46,8 @@ body {
   color: #8C6954;
   background-color: #59323C;
 }
-
-/* Icons taken from http://ionicons.com/ */
+@import url(http://fonts.googleapis.com/css?family=Orbitron:700);
+/* Icons from http://ionicons.com/ */
 
 input {
   height: 35px;
@@ -85,7 +84,7 @@ textarea {
 
 
 
-@import url(http://fonts.googleapis.com/css?family=Orbitron:700);
+
 
 /* Stars 
 ------------------------------------- */
