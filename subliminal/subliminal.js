@@ -3,6 +3,10 @@ var loadedimages = false;
  
 if (Meteor.isClient) {
 
+  Template.inputDream.rendered=function() {
+    $('#my-datepicker').datepicker();
+  }
+
   Template.inputDream.events({
     "click .add-dream": function (event) {
       // Prevent default browser form submit
