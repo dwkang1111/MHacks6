@@ -402,25 +402,21 @@ if (Meteor.isClient) {
     "submit .tag-list": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
-      console.log("sumbit tag-list firing");
       // Get value from form element
       var text = event.target.tags.value;
-      console.log("text:",text);
       var object = {'name': text};
       var old_tags_list_temp = Session.get('tags_list_temp');
       var new_tags_list_temp = old_tags_list_temp;
       new_tags_list_temp.push(object);
-      console.log(object);
-      console.log("old_tags_list_temp",old_tags_list_temp);
-      console.log("new_tags_list_temp",new_tags_list_temp);
       Session.set('tags_list_temp', old_tags_list_temp);
       if(text != "") {
-   
         // Clear form
         event.target.tags.value = "";
 
         $('#imageBar').height('0px');
-        $('#imageBar').animate({height: '+=200px'});
+        $('#imageBar').animate({height: '+=200px'}, function() {
+            $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        });
         $('.imgBarimg').height('180px');
         $('#left').css('visibility', 'visible');
         $('#right').css('visibility', 'visible');
