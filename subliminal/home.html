@@ -94,6 +94,7 @@
     }
     a:hover {
       text-decoration: none;
+      color: white;
     }
   </style>
 
@@ -114,19 +115,21 @@
           about
         </button>
       </div>
-      {{#if currentUser}}
-         <div>I am Logged In!</div>
-         <span>My name is: {{> username}}</span>
-         {{> logout}}
-      {{/if}}
       <div class="vertical-center text-center" style="width:100%;">
         <a id="container" class="bai">
             <div class="dot"></div>
             <div class="pulse"></div>
         </a>
       </div>
-      <div style="position:absolute; left:30px; bottom:0; font-size:112px; color:rgba(255, 255, 255, 0.6);">
-        Subliminal
+      <div style="position:absolute; left:30px; bottom:0; color:rgba(255, 255, 255, 0.6);">
+        <div style="float:left; font-size:112px;">
+          Subliminal
+        </div>
+        {{#if currentUser}}
+          <div style="float:left; font-size:36px;">
+            <a class="logout" style="cursor:pointer;">{{username}}</a>
+          </div>
+        {{/if}}
       </div>
     </div>
 
@@ -164,12 +167,4 @@
       })
     })
   </script>
-</template>
-
-<template name="logout">
-  <a style="color:yellow" class="logout">Logout</a>
-</template>
-
-<template name="username">
-  <p>{{username}}</p>
 </template>

@@ -26,14 +26,24 @@
       <h2 style="margin-bottom:30px;"> Register </h2>
       {{> register_input}}
       <div style="margin-top:20px;">
-        <a href="/login">Back</a>
+        <a onclick="goLogin()" style="cursor:pointer;">Back</a>
       </div>
     </div>
   </div>
   <script>
     function goHome() {
-      Router.go('/');
+      $('.vertical-center').fadeOut("slow", function() {
+        Router.go('/');
+      })
     }
+    function goLogin() {
+      $('.vertical-center').fadeOut("slow", function() {
+        Router.go('/login');
+      })
+    }
+    $(document).ready(function() {
+      $(".vertical-center").fadeIn("slow");
+    })
   </script>
 </template>
 

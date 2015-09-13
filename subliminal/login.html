@@ -30,14 +30,24 @@
       </div>
       {{> login_input}}
       <div style="margin-top:30px; font-size:20px;">
-        <a href="/register">Or make an account...</a>
+        <a style="cursor:pointer" onclick="goRegister()">Or make an account...</a>
       </div>
     </div>
   </div>
   <script>
     function goHome() {
-      Router.go('/');
+      $(".vertical-center").fadeOut("slow", function() {
+        Router.go('/');
+      })
     }
+    function goRegister() {
+      $(".vertical-center").fadeOut("slow", function() {
+        Router.go('/register');
+      })
+    }
+    $(document).ready(function() {
+      $(".vertical-center").fadeIn("slow");
+    })
   </script>
 </template>
 
