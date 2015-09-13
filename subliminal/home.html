@@ -36,6 +36,9 @@
       opacity: 0;
     }
 
+    .bai {
+      cursor: pointer;
+    }
 
     @-webkit-keyframes "pulse" {
      0% {
@@ -107,10 +110,13 @@
          {{> logout}}
       {{/if}}
       <div class="vertical-center text-center" style="width:100%;">
-        <a id="container" href="/input">
+        <a id="container" class="bai">
             <div class="dot"></div>
             <div class="pulse"></div>
         </a>
+      </div>
+      <div style="position:absolute; left:30px; bottom:0; font-size:112px; color:rgba(255, 255, 255, 0.6);">
+        Subliminal
       </div>
     </div>
 
@@ -134,17 +140,9 @@
     }
     $(document).ready(function() {
       $('.container-fluid').fadeIn("slow", function() {
-        $('#record').fadeIn("slow");
+        $('.bai').fadeIn("slow");
       });
-      $('#record').hover(function() {
-        $(this).addClass("shadow-z-5");
-        $(this).removeClass("shadow-z-2");
-      }, function() {
-        $(this).addClass("shadow-z-2");
-        $(this).removeClass("shadow-z-5");
-      })
-      $('#record').mousedown(function() {
-        $(this).removeClass("shadow-z-5");
+      $('.bai').mousedown(function() {
         $(this).mouseup(function() {
           $("#plus").removeClass("ion-android-add");
           $(this).fadeOut("slow", function() {
