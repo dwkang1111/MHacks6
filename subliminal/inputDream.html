@@ -101,14 +101,19 @@
 
   </style>
   <div class="header row">
+    <!-- back button -->
     <div class="col-md-4 text-left" style="margin-top:26px;">
       <a class="ion-android-home" onclick="goHome()"></a>
     </div>
+
+    <!-- title -->
     <div class="col-md-4 text-center" style="margin-top:26px;">
       <a href="/">Subliminal</a>
     </div>
+
+    <!-- save dream -->
     <div class="col-md-4 text-right" style="margin-top:26px;">
-      <a class="ion-android-done"></a>
+      <a class="ion-android-done add-dream" onclick="gotoList()"></a>
     </div>
   </div>
   <div class="container-fluid" style="display:none">
@@ -129,6 +134,7 @@
       </div>
     </div>
 
+    <!-- Date Input -->
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Date:</div>
       <div class="col-md-9"><input style="width:115px;" type="text" id="my-datepicker" class="form-control" placeholder="mm/dd/yyyy"></div>
