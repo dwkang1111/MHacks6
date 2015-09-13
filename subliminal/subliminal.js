@@ -465,9 +465,9 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.username.helpers({
+  Template.Home.helpers({
     username: function() {
-      return Meteor.user().profile.username;
+      return Meteor.user().profile.name;
     }
   });
 

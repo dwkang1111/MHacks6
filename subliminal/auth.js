@@ -10,7 +10,7 @@ if (Meteor.isClient) {
             email: email,
             password: password,
             profile: {
-              username: username,
+              name: username,
             }
         }, 
         function(error){
