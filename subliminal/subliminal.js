@@ -2,19 +2,6 @@ Dreams = new Mongo.Collection("dreams");
 var loadedimages = false;
  
 if (Meteor.isClient) {
-  // This code only runs on the client
-  // Template.body.helpers({
-  //   dreams: function () {
-  //     return Dreams.find({});
-  //   }
-  // });
-
-
-  Template.List.helpers({
-    dreams: function () {
-      return Dreams.find({});
-    }
-  });
 
   Template.inputDream.events({
     "click .add-dream": function (event) {
