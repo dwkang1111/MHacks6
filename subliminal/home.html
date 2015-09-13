@@ -1,24 +1,89 @@
 <template name="Home">
   <style>
-    #record {
-      height: 80px;
-      width: 80px;
-      background-color: red;
+    .glass_container {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      padding: 20px 50px 50px 50px;
+    }
+    #container {
+      height: 360px;
+      width: 360px;
+      background-color: #F5F5F5;
       display: block;
       margin-left: auto;
       margin-right: auto;
-      border-radius: 40px;
-      cursor: pointer;
+      border-radius: 180px;
+      -webkit-box-shadow: 0 0 100px white;
     }
-    .random {
+
+.pulse {
+  margin: 30px;
+  width: 300px;
+  height: 300px;
+  border: 10px solid #FFFAFA;
+  border-radius: 150px;
+  background-color: white;
+  position: absolute;
+}
+
+.dot {
+  margin-top: -70px;
+  margin-left: -70px;
+  border: 50px solid #FFFFF0;
+  background: transparent;
+  border-radius: 250px;
+  height: 500px;
+  width: 500px;
+  animation: pulse 3s ease-out;
+  animation-iteration-count: infinite;
+  position: absolute;
+  z-index: 1000;
+  opacity: 0;
+}
+
+
+@-webkit-keyframes "pulse" {
+ 0% {
+    -webkit-transform: scale(0);
+    opacity: 0.0;
+ }
+ 25% {
+    -webkit-transform: scale(0);
+    opacity: 0.1;
+ }
+ 50% {
+    -webkit-transform: scale(0.1);
+    opacity: 0.3;
+ }
+ 75% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.;
+ }
+ 100% {
+    -webkit-transform: scale(1.2);
+    opacity: 0.0;
+ }
+}
+
+    .randomdot {
       width: 20px;
       height: 20px;
-      background-color: #F2EEB3;
+      background-color: white;
+      box-shadow: 0 0 20px white;
       border-radius: 10px;
       position: absolute;
       left: 50%;
       top: 50%;
-      animation: rotate 15s infinite linear;
+      -webkit-animation: pulsate 1.5s ease-out;
+      -webkit-animation-iteration-count: infinite; 
+    }
+    @-webkit-keyframes pulsate {
+      0% {-webkit-transform: scale(1, 1) ;
+          -webkit-box-shadow: 0 0 20px white;}
+      50% {-webkit-transform: scale(1.3, 1.3);
+           -webkit-box-shadow: 0 0 100px white;}
+      100% {-webkit-transform: scale(1, 1) ;
+            -webkit-box-shadow: 0 0 20px white;}
     }
     .nav {
       position: absolute;
@@ -32,6 +97,8 @@
     a:hover {
       text-decoration: none;
     }
+    .glower1, .glower2, .glower3, .glower4, .glower5, .glower6, .glower7,
+    .glower8, .glower9, .glower10, .glower11, .glower12, .glower13, .glower14 {}
     /* animation taken from http://lea.verou.me/2012/02/moving-an-element-along-a-circle/ */
     @keyframes rotate {
       from {
@@ -41,34 +108,30 @@
         transform: rotate(360deg) translate(-150px) rotate(-360deg);
       }
     }
-    @-webkit-keyframes rotate {
-      from {
-        -webkit-transform: rotate(0deg) translate(-150px) rotate(0deg);
-      }
-      to {
-        -webkit-transform: rotate(360deg) translate(-150px) rotate(-360deg);
-      }
-    }
   </style>
-  
-  <div class="container-fluid" style="display:none">
-    <div class="text-right nav" style="font-size:25px;">
-      <button id="historyBtn" class="btn btn-default btn-flat" style="margin-right:10px;" onclick="goList()">history</button>
-      <button id="aboutBtn" class="btn btn-default btn-flat" onclick="goAbout()">about</button>
+
+    <div class="glower1"> </div><div class="glower2"> </div><div class="glower3"> </div><div class="glower4"> </div><div class="glower5"> </div><div class="glower6"> </div><div class="glower7"> </div>
+    <div class="glower8"> </div><div class="glower9"> </div><div class="glower10"> </div><div class="glower11"> </div><div class="glower12"> </div><div class="glower13"> </div><div class="glower14"> </div>
+    <!-- this some ghetto shit ikik --> 
+    <div class="container-fluid">
+      <div class="text-right nav" style="font-size:25px;">
+        <button class="btn btn-default btn-flat" style="margin-right:10px;" onclick="goList()">history</button>
+        <button class="btn btn-default btn-flat" onclick="goAbout()">about</button>
+      </div>
+      {{#if currentUser}}
+         <div>I am Logged In!</div>
+         <span>My name is: {{> username}}</span>
+         {{> logout}}
+      {{/if}}
+      <div class="vertical-center text-center" style="width:100%;">
+        <a id="container" href="/input">
+            <div class="dot"></div>
+            <div class="pulse"></div>
+        </a>
+      </div>
+      <!-- How do I animate multiple divs easily? -->
     </div>
-    {{#if currentUser}}
-       <div>I am Logged In!</div>
-       <span>My name is: {{> username}}</span>
-       {{> logout}}
-    {{/if}}
-    <div class="vertical-center text-center" style="width:100%;">
-      <a id="record" class="shadow-z-2" style="display:none;">
-        <i id="plus" class="ion-android-add" style="color:white; font-size:58px;"></i>
-      </a>
-    </div>
-    <!-- How do I animate multiple divs easily? -->
-    <div class="random"></div>
-  </div>
+
 
   <script>
     function goList() {

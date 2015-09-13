@@ -3,6 +3,13 @@ var loadedimages = false;
  
 if (Meteor.isClient) {
 
+<<<<<<< HEAD
+  palette= ['FFBD80','FFAB5D','F39239','D06E13','F34739','FF695D','FF8980','FFBD80','F39239','FFAB5D','F3B839','FFD780','FFCC5D','D09413']
+
+  Template.List.helpers({
+    dreams: function () {
+      return Dreams.find({});
+=======
   Template.inputDream.events({
     "click .add-dream": function (event) {
       // Prevent default browser form submit
@@ -23,8 +30,350 @@ if (Meteor.isClient) {
  
       // Clear form
       // event.target.title.value = "";
+>>>>>>> origin
     }
   });
+
+  Template.Home.rendered = function() {
+      (function makeDiv(){
+        console.log(palette.length);
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower1').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+    
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower2').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower3').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower4').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower5').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower6').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower7').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower8').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+    
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower9').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower10').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower11').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glowe12').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower13').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+    (function makeDiv(){
+        var divsize = ((Math.random()*80) + 100).toFixed();
+        $newdiv = $('.glower14').css({
+            'width':divsize+'px',
+            'height':divsize+'px',
+            'background-color':'#'+palette[Math.floor(Math.random() * 14) + 0],
+            'position':'absolute',
+            'border-radius':(divsize/2)+'px',
+            'opacity':(Math.random()/6 + 0.0)
+        });
+
+        var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+        var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+        $newdiv.css({
+            'position':'absolute',
+            'left':posx+'px',
+            'top':posy+'px',
+            'display':'none'
+        }).appendTo( 'body' ).fadeIn(1200).delay(1600).fadeOut(1000, function(){
+             makeDiv(); 
+        }); 
+    })();
+
+      
+  }
  
   Template.inputDream.events({
     "submit .tag-list": function (event) {
