@@ -17,14 +17,33 @@
       height: auto;
     }
   </style>
-  <div class="header text-center" style="position:absolute; font-size:45px;">
-    <div style="margin-top:20px;">
-      <a href="/"> Subliminal </a>
+  <div class="header row text-center" style="position:absolute; display:none; font-size:45px;">
+    <div class="col-md-4 col-sm-4 text-left" style="margin-top:26px;">
+      <a class="ion-android-home" style="margin-left:10px; cursor:pointer;" onclick="goHome()"></a>
+    </div>
+    <div class="col-md-4 col-sm-4 text-center" style="font-size:45px; margin-top:26px;">
+      <a onclick="goHome()" style="cursor:pointer;">Subliminal</a>
     </div>
   </div>
-  <div class="vertical-center">
+  <div class="vertical-center" style="display:none;">
     <div class="container panel text-center about shadow-z-2" style="line-height:200%;">
       Welcome to Subliminal, a simple yet beautiful website dedicated to helping you record your dreams via text and images as well as analyze your dreams. Simply press the big red circle to record a new dream you had, and the app will take care of the rest. <br/> Enjoy!
     </div>
   </div>
+  <script>
+    function goHome() {
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut("fast");
+        $('.vertical-center').fadeOut(function() {
+          Router.go('/');
+        });
+
+      })
+    }
+    $(document).ready(function() {
+      $(".header").fadeIn("slow", function() {
+        $('.vertical-center').fadeIn("slow");
+      });
+    })
+  </script>
 </template>

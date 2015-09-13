@@ -8,6 +8,7 @@
       margin-left: auto;
       margin-right: auto;
       border-radius: 40px;
+      cursor: pointer;
     }
     .random {
       width: 20px;
@@ -50,10 +51,10 @@
     }
   </style>
   
-  <div class="container-fluid">
+  <div class="container-fluid" style="display:none">
     <div class="text-right nav" style="font-size:25px;">
-      <button class="btn btn-default btn-flat" style="margin-right:10px;" onclick="goList()">history</button>
-      <button class="btn btn-default btn-flat" onclick="goAbout()">about</button>
+      <button id="historyBtn" class="btn btn-default btn-flat" style="margin-right:10px;" onclick="goList()">history</button>
+      <button id="aboutBtn" class="btn btn-default btn-flat" onclick="goAbout()">about</button>
     </div>
     {{#if currentUser}}
        <div>I am Logged In!</div>
@@ -61,7 +62,9 @@
        {{> logout}}
     {{/if}}
     <div class="vertical-center text-center" style="width:100%;">
-      <a id="record" href="/input"></a>
+      <a id="record" class="shadow-z-2" style="display:none;">
+        <i id="plus" class="ion-android-add" style="color:white; font-size:58px;"></i>
+      </a>
     </div>
     <!-- How do I animate multiple divs easily? -->
     <div class="random"></div>
@@ -69,14 +72,47 @@
 
   <script>
     function goList() {
-      Router.go('/list');
+      $('#historyBtn').fadeOut("slow", function() {
+        $('#aboutBtn').fadeOut("fast", function() {
+          $('.container-fluid').fadeOut(function() {
+            Router.go('/list');
+          })
+        })
+      })
     }
     function goAbout() {
-      Router.go('/about');
+      $('#historyBtn').fadeOut("slow");
+      $('#aboutBtn').fadeOut("slow", function(){
+        $('.container-fluid').fadeOut(function() {
+          Router.go('/about');
+        });
+      });
     }
+    $(document).ready(function() {
+      $('.container-fluid').fadeIn("slow", function() {
+        $('#record').fadeIn("slow");
+      });
+      $('#record').hover(function() {
+        $(this).addClass("shadow-z-5");
+        $(this).removeClass("shadow-z-2");
+      }, function() {
+        $(this).addClass("shadow-z-2");
+        $(this).removeClass("shadow-z-5");
+      })
+      $('#record').mousedown(function() {
+        $(this).removeClass("shadow-z-5");
+        $(this).mouseup(function() {
+          $("#plus").removeClass("ion-android-add");
+          $(this).fadeOut("slow", function() {
+            $(".container-fluid").fadeOut(function() {
+              Router.go('/input');
+            })
+          })
+        })
+      })
+    })
   </script>
 </template>
-
 
 <template name="logout">
   <a style="color:yellow" class="logout">Logout</a>
