@@ -15,16 +15,17 @@
     }
     a:hover {
       text-decoration: none;
+      color: white;
     }
   </style>
 
-  <div class="container vertical-center" style="width:600px;">
+  <div class="container vertical-center" style="width:500px;">
     <div class="glass_container text-center" style="width:100%;">
       <h2> Welcome to Subliminal </h2>
       <div style="margin-top:40px; cursor:pointer;">
         <img src="facebook.png" class="loginImg" onclick="goHome()"/>
       </div>
-      <div style="cursor:pointer;">
+      <div style="cursor:pointer; margin-bottom:30px;">
         <img src="google.png" class="loginImg" onclick="goHome()" />
       </div>
       {{> login_input}}
@@ -42,22 +43,23 @@
 
 
 <template name="login_input">
+  <div style="width:315px; margin:auto;">
     <h3>Login</h3>
-    <form class="login_input text-center">
-      <div class="text-center">
-        <table>
-          <tr>
-            <td>Email:</td>
-            <td><input type="email" name="email"></td>
-          </tr>
-          <tr>
-            <td>Password:</td>
-            <td><input type="password" name="password"></td>
-          </tr>
-        </table>
-      </div>
-      <input type="submit" value="Login">
+    <form class="login_input">
+      <input type="email" name="email" 
+                  class="form-control floating-label" 
+                  placeholder="Email address"
+                  style="margin:20px 0px 20px 0px;">
+      <input type="password" name="password" 
+                  class="form-control floating-label" 
+                  placeholder="Password">
+      <input class="btn btn-default btn-raised" 
+                  type="submit" 
+                  id="loginBtn"
+                  value="Login" 
+                  style="margin-top:20px; background-color:white;">
     </form>
+  </div>
 </template>
 
 
