@@ -6,18 +6,13 @@
       font-weight: 500;
     }
     .tagBar {
-      position: absolute; 
-      bottom: 0; 
-      left: 0; 
       height: 80px;
       background-color: #8C6954;
       width: 100%;
       margin:0;
+      margin-bottom: 30px;
     }
     #imageBar {
-      position: absolute;
-      bottom: 80px;
-      left: 0px;
       height: 0px;
       width: 100%;
       background-color: #37474F;
@@ -116,13 +111,13 @@
       <a class="ion-android-done add-dream" onclick="gotoList()"></a>
     </div>
   </div>
-  <div class="container-fluid" style="display:none">
+  <div class="container-fluid" style="display:none;">
 
     <!-- Title input -->
     <div class="row" style="margin-top:40px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
-        <input id="title_input" class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
+        <input id="title_input" class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream"  autocomplete="off"/>
       </div>
     </div>
 
@@ -140,18 +135,20 @@
       <div class="col-md-9"><input style="width:115px;" type="text" id="my-datepicker" class="form-control" placeholder="mm/dd/yyyy"></div>
     </div>
 
-    <div class="dreamTemplate"> 
+    <div class="dreamTemplate" style="margin-bottom:60px;"> 
         <div id="dreamTemplatePicture1" class="dropzone"> </div>
         <div id="dreamTemplatePicture2" class="dropzone"> </div>
         <div id="dreamTemplatePicture3" class="dropzone"> </div>
     </div>
+  </div>
+  <div class="container-fluid" style="padding:0;">
     <div id="imageBar" class="wrapper">
       <a id="left" class="ion-ios-arrow-back" style="visibility:hidden; position:absolute; bottom:70px; left:10px; color:white; z-index:3;"></a>
       <a id="right" class="ion-ios-arrow-forward" style="visibility:hidden; position:absolute; bottom:70px; right:10px; color:white; z-index:3;"></a>
       <div id="addhere" class="scrolls">
       </div>
     </div>
-    <div class="tagBar row shadow-z-2">
+    <div class="tagBar row shadow-z-2;">
       <div class="category col-md-1" style="padding-left:15px; margin-top:30px; color:black;">
         Tags: 
       </div>
@@ -162,7 +159,7 @@
           {{/each}}
           <div>
             <form id="imagequery" class="tag-list" style="width:200%">
-              <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags"/>
+              <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" autocomplete="off"/>
             </form>
           </div>
         </div>
