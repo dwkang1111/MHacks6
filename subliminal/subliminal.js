@@ -42,6 +42,8 @@ if (Meteor.isClient) {
         date: date_given,     
         tags: Session.get('tags_list_temp')
       });
+
+      Session.set('tags_list_temp', []);
  
       // Clear form
       // event.target.title.value = "";
