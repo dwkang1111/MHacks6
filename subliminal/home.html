@@ -85,6 +85,8 @@
       100% {-webkit-transform: scale(1, 1) ;
             -webkit-box-shadow: 0 0 20px white;}
     }
+    .animate1 {animation: rotate1 15s infinite linear;}
+    .animate2 {animation: rotate2 22s infinite linear;}
     .nav {
       position: absolute;
       right: 10px;
@@ -100,7 +102,7 @@
     .glower1, .glower2, .glower3, .glower4, .glower5, .glower6, .glower7,
     .glower8, .glower9, .glower10, .glower11, .glower12, .glower13, .glower14 {}
     /* animation taken from http://lea.verou.me/2012/02/moving-an-element-along-a-circle/ */
-    @keyframes rotate {
+    @keyframes rotate1 {
       from {
         transform: rotate(0deg) translate(-150px) rotate(0deg);
       }
@@ -108,6 +110,49 @@
         transform: rotate(360deg) translate(-150px) rotate(-360deg);
       }
     }
+<<<<<<< HEAD
+    @-webkit-keyframes rotate {
+      from {
+        -webkit-transform: rotate(0deg) translate(-150px) rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg) translate(-150px) rotate(-360deg);
+      }
+    }
+    @keyframes rotate2 {
+      from {
+        transform: rotate(360deg) translate(-250px) rotate(-360deg);
+      }
+      to {
+        transform: rotate(0deg) translate(-250px) rotate(0deg);
+      }
+    }
+  </style>
+  
+  <div class="container-fluid" style="display:none">
+    <div class="text-right nav" style="font-size:25px;">
+      <button id="historyBtn" class="btn btn-default btn-flat" style="margin-right:10px;" onclick="goList()">history</button>
+      <button id="aboutBtn" class="btn btn-default btn-flat" onclick="goAbout()">about</button>
+    </div>
+    {{#if currentUser}}
+       <div>I am Logged In!</div>
+       <span>My name is: {{> username}}</span>
+       {{> logout}}
+    {{/if}}
+    <div class="vertical-center text-center" style="width:100%;">
+      <a id="record" class="shadow-z-2" style="display:none;">
+        <i id="plus" class="ion-android-add" style="color:white; font-size:58px;">
+        </i>
+      </a>
+    </div>
+    <!-- How do I animate multiple divs easily? -->
+    <div class="random animate1"></div>
+    <div class="random animate2"></div>
+    <div style="position:absolute; bottom:0; left:30px; font-size:112px; color:rgba(255, 255, 255, 0.5);">
+      Subliminal
+    </div>
+  </div>
+=======
   </style>
 
     <div class="glower1"> </div><div class="glower2"> </div><div class="glower3"> </div><div class="glower4"> </div><div class="glower5"> </div><div class="glower6"> </div><div class="glower7"> </div>
@@ -132,6 +177,7 @@
       <!-- How do I animate multiple divs easily? -->
     </div>
 
+>>>>>>> origin/master
 
   <script>
     function goList() {

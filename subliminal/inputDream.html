@@ -135,16 +135,15 @@
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Summary:</div>
       <div class="col-md-11" style="margin-top:5px;">
-        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
+        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="What did you dream about?"></textarea>
       </div>
     </div>
 
-    <div style="margin-left:20px;">
-      <paper-date-picker-dialog></paper-date-picker-dialog>
-      <paper-button raised onClick="document.querySelectorAll('paper-date-picker-dialog')[0].open()">Open date picker dialog</paper-button>
+    <div class="row" style="margin-top:20px;">
+      <div class="category col-md-1">Date:</div>
+      <div class="col-md-9"><input style="width:115px;" type="text" id="my-datepicker" class="form-control" placeholder="mm/dd/yyyy"></div>
     </div>
 
-    <!-- picture selection -->
     <div class="dreamTemplate"> 
         <div id="dreamTemplatePicture1" class="dropzone"> </div>
         <div id="dreamTemplatePicture2" class="dropzone"> </div>
@@ -160,11 +159,19 @@
       <div class="category col-md-1" style="padding-left:15px; margin-top:30px;">
         Tags: 
       </div>
-      <div class="col-md-11">
+      <div class="col-md-11" style="width:100%;">
         <div id="sudoTable" style="width:100%; margin-top:30px;">
+<<<<<<< HEAD
+
+          <div style="margin-right:10px;">{{> tag name=dream.tag}}</div>
+          <div>
+            <form id="imagequery" class="tag-list">
+              <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" />
+=======
           <div style="width:100%">
             <form id="imagequery" class="tag-list" style="width:100%">
               <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
+>>>>>>> origin/master
             </form>
           </div>
           <div style="margin-right:10px;">{{> tag name="Haha"}}</div>
@@ -190,6 +197,7 @@
       $('.container-fluid').fadeIn("slow", function() {
         $('.header').fadeIn("slow");
       });
+
       $('#left').click(function() {
         event.preventDefault();
         $('.scrolls').animate({
