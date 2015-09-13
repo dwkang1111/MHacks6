@@ -14,7 +14,7 @@ if (Meteor.isClient) {
     'click #killList':function(event) {
         Dreams.remove(this._id);
     }
-  })
+  });
 
   Template.inputDream.helpers({
     tags_list_temp: function () {
@@ -50,22 +50,19 @@ if (Meteor.isClient) {
 
   Template.List.helpers({
     dreams: function () {
-      return Dreams.find({});
+      return Dreams.find({}, {sort:{date: -1}});
     }});
 
   Template.inputDream.events({
     "click .add-dream": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
-      console.log("add-dream firing");
  
       // Get value from form element
       var title = $( "#title_input" ).val();
       // var tags = [{'name':'tag1'},{'name':'tag2'}]
-      console.log(title);
 
       var date_given = $( "#my-datepicker" ).val();  //from date_picker
-      console.log(date_given);
        
       // Insert a task into the collection
       Dreams.insert({
@@ -84,7 +81,6 @@ if (Meteor.isClient) {
 
   Template.Home.rendered = function() {
       (function makeDiv(){
-        console.log(palette.length);
         var divsize = ((Math.random()*80) + 100).toFixed();
         $newdiv = $('.glower1').css({
             'width':divsize+'px',
