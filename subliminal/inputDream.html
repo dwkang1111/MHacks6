@@ -100,7 +100,18 @@
     }
 
   </style>
-  <div class="container-fluid" style="margin-top:50px;">
+  <div class="header row">
+    <div class="col-md-4 text-left" style="margin-top:26px;">
+      <a class="ion-android-home" onclick="goHome()"></a>
+    </div>
+    <div class="col-md-4 text-center" style="margin-top:26px;">
+      <a href="/">Subliminal</a>
+    </div>
+    <div class="col-md-4 text-right" style="margin-top:26px;">
+      <a class="ion-android-done"></a>
+    </div>
+  </div>
+  <div class="container-fluid" style="display:none;">
 
     <!-- back button -->
     <div class="header row">
@@ -121,10 +132,10 @@
 
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid" style="display:none">
 
     <!-- Title input -->
-    <div class="row" style="margin-top:30px;">
+    <div class="row" style="margin-top:40px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
         <input id="title_input" class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
