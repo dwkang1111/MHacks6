@@ -3,13 +3,13 @@ var loadedimages = false;
  
 if (Meteor.isClient) {
 
-<<<<<<< HEAD
   palette= ['FFBD80','FFAB5D','F39239','D06E13','F34739','FF695D','FF8980','FFBD80','F39239','FFAB5D','F3B839','FFD780','FFCC5D','D09413']
 
   Template.List.helpers({
     dreams: function () {
       return Dreams.find({});
-=======
+    }});
+
   Template.inputDream.events({
     "click .add-dream": function (event) {
       // Prevent default browser form submit
@@ -30,7 +30,7 @@ if (Meteor.isClient) {
  
       // Clear form
       // event.target.title.value = "";
->>>>>>> origin
+
     }
   });
 
