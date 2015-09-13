@@ -12,6 +12,9 @@
       text-decoration: none;
       color: white;
     }
+    .add-icon{
+      font-size: 40px;
+    }
   </style>
   <div class="header row" style="display:none;">
     <div class="col-md-4 col-sm-4 text-left" style="margin-top:26px;">
@@ -19,6 +22,9 @@
     </div>
     <div class="col-md-4 col-sm-4 text-center" style="font-size:45px; margin-top:26px;">
       <a onclick="goHome()" style="cursor:pointer;">Subliminal</a>
+    </div>
+    <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
+      <a class="ion-android-add-circle add-icon" style="margin-right:10px;" onclick="goInputDream()"></a>
     </div>
     <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
     </div>
@@ -33,6 +39,14 @@
     </div>
   </div>
   <script>
+  function goInputDream() {
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut();
+        $(".container").fadeOut(function() {
+          Router.go('/input');
+        })
+      })
+    }
     function goHome () {
       $(".ion-android-home").fadeOut("slow", function() {
         $(".header").fadeOut();
