@@ -97,37 +97,50 @@
 
   </style>
   <div class="container-fluid" style="margin-top:50px;">
+
+    <!-- back button -->
     <div class="header row">
       <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
         <a class="ion-android-arrow-back" onclick="goHome()"></a>
       </div>
-      <div class="col-md-4 text-center" style="font-size:45px; margin-top:20px; margin-bottom:20px;">
-        <a href="/">Subliminal</a>
-      </div>
-      <div class="col-md-4 text-right" style="margin-top:20px; margin-bottom:20px;">
-        <a class="ion-android-done add-dream"></a>
-      </div>
-    </div>
+    
+
+    <!-- title -->
     <div class="col-md-4 text-center" style="margin-top:26px;">
       <a href="/">Subliminal</a>
     </div>
+
+    <!-- save Dream entry -->
     <div class="col-md-4 text-right" style="margin-top:26px;">
-      <a class="ion-android-done"></a>
+      <a class="ion-android-done add-dream" onclick="gotoList()"></a>
+    </div>
+
     </div>
   </div>
   <div class="container-fluid">
+
+    <!-- Title input -->
     <div class="row" style="margin-top:30px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
         <input id="title_input" class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
       </div>
     </div>
+
+    <!-- Summary input -->
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Summary:</div>
       <div class="col-md-11" style="margin-top:5px;">
         <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
       </div>
     </div>
+
+    <div style="margin-left:20px;">
+      <paper-date-picker-dialog></paper-date-picker-dialog>
+      <paper-button raised onClick="document.querySelectorAll('paper-date-picker-dialog')[0].open()">Open date picker dialog</paper-button>
+    </div>
+
+    <!-- picture selection -->
     <div class="dreamTemplate"> 
         <div id="dreamTemplatePicture1" class="dropzone"> </div>
         <div id="dreamTemplatePicture2" class="dropzone"> </div>
@@ -144,15 +157,25 @@
         Tags: 
       </div>
       <div class="col-md-11">
-        <form id="imagequery" class="tag-list" style="margin-top:30px;">
-          <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
-        </form> 
+        <div style="margin-top:30px; width:100%;">
+          {{> tag name="sfsafa"}}
+          <div  style="color:yellow; margin-right:10px;display:inline; float:left; ">{{> tag name="sfsafa"}}</div>
+          <div style="display:inline; float:left;">
+            <form id="imagequery" class="tag-list">
+              <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
+            </form> 
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <script>
     function goHome() {
       Router.go('/');
+    }
+
+    function gotoList() {
+      Router.go('/list');
     }
 
     $(document).ready(function() {
