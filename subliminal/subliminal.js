@@ -38,11 +38,13 @@ if (Meteor.isClient) {
       // Get value from form element
       var text = event.target.tags.value;
       if(text != "") {
+
         // Insert a task into the collection
-        // Dreams.insert({
-        //   tags: text,
-        //   createdAt: new Date() // current time
-        // });
+        Dreams.insert({
+          tags: text,
+          createdAt: new Date() // current time
+        });
+        console.log(Dreams);
    
         // Clear form
         event.target.tags.value = "";

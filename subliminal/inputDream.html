@@ -126,7 +126,7 @@
     </div>
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Date:</div>
-      <div class="col-md-9"><input style="width:120px;" type="text" id="my-datepicker" class="form-control" placeholder="mm/dd/yyyy"></div>
+      <div class="col-md-9"><input style="width:115px;" type="text" id="my-datepicker" class="form-control" placeholder="mm/dd/yyyy"></div>
     </div>
     <div class="dreamTemplate"> 
         <div id="dreamTemplatePicture1" class="dropzone"> </div>
@@ -145,7 +145,9 @@
       </div>
       <div class="col-md-11">
         <div id="sudoTable" style="width:100%; margin-top:30px;">
-          <div style="margin-right:10px;">{{> tag name="Haha"}}</div>
+
+          <div style="margin-right:10px;">{{> tag name=dream.tag}}</div>
+
           <div>
             <form id="imagequery" class="tag-list">
               <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>

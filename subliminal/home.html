@@ -18,8 +18,9 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      animation: rotate 15s infinite linear;
     }
+    .animate1 {animation: rotate1 15s infinite linear;}
+    .animate2 {animation: rotate2 22s infinite linear;}
     .nav {
       position: absolute;
       right: 10px;
@@ -33,7 +34,7 @@
       text-decoration: none;
     }
     /* animation taken from http://lea.verou.me/2012/02/moving-an-element-along-a-circle/ */
-    @keyframes rotate {
+    @keyframes rotate1 {
       from {
         transform: rotate(0deg) translate(-150px) rotate(0deg);
       }
@@ -47,6 +48,14 @@
       }
       to {
         -webkit-transform: rotate(360deg) translate(-150px) rotate(-360deg);
+      }
+    }
+        @keyframes rotate2 {
+      from {
+        transform: rotate(0deg) translate(-250px) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-250px) rotate(-360deg);
       }
     }
   </style>
@@ -63,11 +72,13 @@
     {{/if}}
     <div class="vertical-center text-center" style="width:100%;">
       <a id="record" class="shadow-z-2" style="display:none;">
-        <i id="plus" class="ion-android-add" style="color:white; font-size:58px;"></i>
+        <i id="plus" class="ion-android-add" style="color:white; font-size:58px;">
+        </i>
       </a>
     </div>
     <!-- How do I animate multiple divs easily? -->
-    <div class="random"></div>
+    <div class="random animate1"></div>
+    <div class="random animate2"></div>
     <div style="position:absolute; bottom:0; left:30px; font-size:112px; color:rgba(255, 255, 255, 0.5);">
       Subliminal
     </div>
