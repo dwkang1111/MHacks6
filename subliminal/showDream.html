@@ -1,0 +1,77 @@
+<template name="showDream">  
+  <style>
+    a.ion-android-home {
+      font-size: 40px;
+      cursor: pointer;
+      margin-top: 5px;
+      color:white;
+    }
+    a {
+      color: white;
+    }
+    a:hover{
+      text-decoration: none;
+      color: white;
+    }
+    .display {
+      position: relative;
+      width: 80%;
+      height: 60%;
+      margin: 0 auto;
+      top: 50px;
+    }
+    .picturedisplay1, .picturedisplay2, .picturedisplay3{
+      width: 33.33333333%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: center;
+      background-size: auto 100%;
+      display: block;
+      float: left;
+      -webkit-filter: blur(1px) sepia(0.4) saturate(2.5) hue-rotate(-30deg) contrast(0.67);
+      -filter: blur(1px) sepia(0.4) saturate(2.5) hue-rotate(-30deg) contrast(0.67);
+    }
+    .textdiv{
+      color: white;
+      font-size: 300%;
+      position: fixed;
+      width:80%;
+      height:60%;
+      margin-top: 60px;
+      margin-left: 20px;
+
+    }
+  </style>
+  <div class="header row" style="display:none;">
+    <div class="col-md-4 col-sm-4 text-left" style="margin-top:26px;">
+      <a class="ion-android-home" style="margin-left:10px;" onclick="goHome()"></a>
+    </div>
+    <div class="col-md-4 col-sm-4 text-center" style="color: white;font-size:45px; margin-top:26px;">
+      <a onclick="goHome()" style="cursor:pointer;">Subliminal</a>
+    </div>
+    <div class="col-md-4 col-sm-4 text-right" style="color: white; margin-top:26px;"></div>
+  </div>
+  <div class="display">
+    <div class="picturedisplay1"></div>
+    <div class="picturedisplay2"></div>
+    <div class="picturedisplay3"></div>
+    <div class="textdiv"> This is a test</div>
+  </div>
+
+  <script>
+    function goHome () {
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut();
+        $(".container").fadeOut(function() {
+          Router.go('/');
+        })
+      })
+    }
+    $(document).ready(function() {
+      $('.header').fadeIn("slow", function() {
+        $('.container').fadeIn("slow");
+      });
+    })
+  </script>
+
+</template>

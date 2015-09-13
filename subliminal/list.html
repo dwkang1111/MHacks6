@@ -4,6 +4,7 @@
       font-size: 40px;
       cursor: pointer;
       margin-top: 5px;
+      color:white;
     }
     a {
       color: white;
@@ -17,13 +18,13 @@
     <div class="col-md-4 col-sm-4 text-left" style="margin-top:26px;">
       <a class="ion-android-home" style="margin-left:10px;" onclick="goHome()"></a>
     </div>
-    <div class="col-md-4 col-sm-4 text-center" style="font-size:45px; margin-top:26px;">
+    <div class="col-md-4 col-sm-4 text-center" style="color: white;font-size:45px; margin-top:26px;">
       <a onclick="goHome()" style="cursor:pointer;">Subliminal</a>
     </div>
-    <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
+    <div class="col-md-4 col-sm-4 text-right" style="color: white; margin-top:26px;">
     </div>
   </div>
-  <div class="container" style="width:1000px; margin-top:50px; display:none;">
+  <div class="container" style="width:1030px; margin-top:50px; display:none;">
     <div style="width:100%;">
 
       {{#each dreams}}
@@ -41,6 +42,15 @@
         })
       })
     }
+    function showDreamNow () {
+
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut();
+        $(".container").fadeOut(function() {
+          Router.go('/showDream');
+        })
+      })
+    }
     $(document).ready(function() {
       $('.header').fadeIn("slow", function() {
         $('.container').fadeIn("slow");
@@ -53,49 +63,79 @@
 <template name="dream">
   <style>
     .mod {
+      color: white;
       width: 100%;
-      background-color: #8C6954;
-      height: 100px;
+      height: 120px;
       padding: 10px;
+      padding-top: 20px;
       font-size: 20px;
       margin-bottom: 20px;
       color: black;
+      border-radius: 20px;
+      color: white;
     }
     i {
+      color: white;
       font-size: 20px;
       margin-right: 10px;
       cursor: pointer;
     }
+    .paleblock {
+      color: white;
+      width: 1000px;
+      height: 120px;
+      border-radius: 20px;
+      position:absolute;
+      background-image: url(http://www.wallpaper77.com/upload/DesktopWallpapers/cache/Galaxy-Paint-galaxy-wallpapers-nebula-wallpapers-space-wallpapers-1024x600.jpg);
+      background-size: 100% auto;
+      background-position: center;
+      -webkit-filter: blur(2px);
+      filter: blur(2px);
+    }
   </style>
-  <div class="mod shadow-z-2">
-    <a href="/input" style="color:black;">
-      <div class="row" style="height:40px;">
-        <div class="col-md-2 col-sm-2 text-right">
-          {{date}}
-        </div>
-        <div class="col-md-9 col-sm-9">
-          {{title}}
-        </div>
-        <div class="col-md-1 col-sm-1 text-right">
-          <i class="ion-android-close"></i>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 col-sm-12 row" style="margin-top:10px;"> 
-          <div class="col-md-2 col-sm-2 text-right">Tags:</div>
-          <div class="col-md-10 col-sm-10">
-            <table>
-              <tr>
-                {{#each tags}}
-                  <td>
-                    {{> tag_template}}
-                  </td>
-                {{/each}}
-              </tr>
-            </table>
+  <div class="paleblock"></div>
+<!--   <a href="/showDream" style="color:white;">
+ -->    <div class="mod shadow-z-2">
+        <div class="row" style="height:40px;">
+          <div class="col-md-2 col-sm-2 text-right">Title:</div>
+          <div class="col-md-2 col-sm-2 text-right" style="color:white;">
+            {{date}}
+          </div>
+          <a href="/showDream?{{title}}">
+            <div class="col-md-9 col-sm-9 title" style="color:white">
+              {{title}}
+            </div>
+          </a>
+          <div class="col-md-1 col-sm-1 text-right">
+            <i class="ion-android-close" style="margin: 0 0;"></i>
           </div>
         </div>
-      </div>
-    </a>
-  </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 row" style="margin-top:10px;float: left"> 
+            <div class="col-md-2 col-sm-2 text-right">Tags:</div>
+            <div class="col-md-10 col-sm-10">
+              <table>
+                <tr>
+                  {{#each tags}}
+                    <td>
+                      {{> tag_template}}
+                    </td>
+                  {{/each}}
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  <!-- a -->
 </template>
+
+
+
+
+
+
+
+
+
+

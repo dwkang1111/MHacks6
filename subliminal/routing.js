@@ -16,3 +16,6 @@ Router.route('/list', function() {
 Router.route('/about', function() {
   this.render('About');
 })
+Router.route('/showDream', function() {
+  this.render('showDream');
+})

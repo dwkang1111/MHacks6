@@ -11,6 +11,29 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.showDream.rendered=function() {
+    url = Iron.Location.get().path;
+    console.log("url is: " + url);
+
+    title = url.split("?")[1];
+    title = title.replace(/%20/g, " ");
+    console.log("title is: " + title);
+
+    for(var obj in Dreams.find().fetch()){
+        if(Dreams.find().fetch()[obj].title == title){
+            $('.picturedisplay1').css('background-image', 'url(' + Dreams.find().fetch()[obj].urls[0] + ')');
+            $('.picturedisplay2').css('background-image', 'url(' + Dreams.find().fetch()[obj].urls[1] + ')');
+            $('.picturedisplay3').css('background-image', 'url(' + Dreams.find().fetch()[obj].urls[2] + ')');
+            obj.selected = false;
+            var desc = Dreams.find().fetch()[obj].desc;
+        }
+    }    
+    if (desc == null){
+        desc = "";
+    }
+    $('.textdiv').text(title + "                                                                                    " + desc);
+
+  }
 
   Template.inputDream.rendered=function() {
     $('#my-datepicker').datepicker();
@@ -26,21 +49,31 @@ if (Meteor.isClient) {
     "click .add-dream": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
-      console.log("add-dream firing");
  
       // Get value from form element
       var title = $( "#title_input" ).val();
       // var tags = [{'name':'tag1'},{'name':'tag2'}]
-      console.log(title);
 
       var date_given = $( "#my-datepicker" ).val();  //from date_picker
-      console.log(date_given);
-       
+
+      var url1 = $("#dreamTemplatePicture1").css('background-image')
+      url1 = url1.replace('url(','').replace(')','');
+
+      var url2 = $("#dreamTemplatePicture2").css('background-image')
+      url2 = url2.replace('url(','').replace(')','');
+
+      var url3 = $("#dreamTemplatePicture3").css('background-image')
+      url3 = url3.replace('url(','').replace(')','');
+
+      var description = $("#summary").val();
+
       // Insert a task into the collection
       Dreams.insert({
         title: title,
         date: date_given,     
-        tags: Session.get('tags_list_temp')
+        tags: Session.get('tags_list_temp'),
+        desc: description,
+        urls: [url1, url2, url3]
       });
 
       Session.set('tags_list_temp', []);
