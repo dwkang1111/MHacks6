@@ -15,7 +15,7 @@ if (Meteor.isClient) {
         Dreams.remove(this._id);
     }
   });
-
+  
   Template.inputDream.helpers({
     tags_list_temp: function () {
       return Session.get('tags_list_temp');
@@ -418,7 +418,6 @@ if (Meteor.isClient) {
 
       
   }
- 
   Template.inputDream.events({
     "submit .tag-list": function (event) {
       // Prevent default browser form submit
