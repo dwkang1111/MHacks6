@@ -3,6 +3,15 @@ var loadedimages = false;
  
 if (Meteor.isClient) {
 
+  Session.setDefault('tags_list_temp', []);
+
+  Template.List.helpers({
+    tags_list_temp: function () {
+      return Session.get('tags_list_temp');
+    }
+  });
+
+
   Template.inputDream.rendered=function() {
     $('#my-datepicker').datepicker();
   }
@@ -21,14 +30,14 @@ if (Meteor.isClient) {
  
       // Get value from form element
       var title = $( "#title_input" ).val();
-      var tags = [{'name':'tag1'},{'name':'tag2'}]
+      // var tags = [{'name':'tag1'},{'name':'tag2'}]
       console.log(title);
        
       // Insert a task into the collection
       Dreams.insert({
         title: title,
         date: new Date(), // current time
-        tags: tags
+        tags: Session.get('tags_list_temp')
       });
  
       // Clear form
@@ -385,6 +394,15 @@ if (Meteor.isClient) {
       console.log("sumbit tag-list firing");
       // Get value from form element
       var text = event.target.tags.value;
+      console.log("text:",text);
+      var object = {'name': text};
+      var old_tags_list_temp = Session.get('tags_list_temp');
+      var new_tags_list_temp = old_tags_list_temp;
+      new_tags_list_temp.push(object);
+      console.log(object);
+      console.log("old_tags_list_temp",old_tags_list_temp);
+      console.log("new_tags_list_temp",new_tags_list_temp);
+      Session.set('tags_list_temp', old_tags_list_temp);
       if(text != "") {
 
         // Insert a task into the collection
