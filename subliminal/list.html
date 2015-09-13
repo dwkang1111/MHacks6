@@ -88,18 +88,9 @@
       <div class="col-md-10 col-sm-10">
         <table>
           <tr>
-            <td>
-              {{> tag name="hackathon"}}
-            </td>
-            <td>
-              {{> tag name="bleh"}}
-            </td>
-            <td>
-              {{> tag name="sleep"}}
-            </td>
             {{#each tags}}
               <td>
-                {{> tag}}
+                {{> tag_template}}
               </td>
             {{/each}}
           </tr>
