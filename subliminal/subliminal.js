@@ -12,6 +12,9 @@ if (Meteor.isClient) {
   });
 
 
+  Template.inputDream.rendered=function() {
+    $('#my-datepicker').datepicker();
+  }
   palette= ['FFBD80','FFAB5D','F39239','D06E13','F34739','FF695D','FF8980','FFBD80','F39239','FFAB5D','F3B839','FFD780','FFCC5D','D09413']
 
   Template.List.helpers({
@@ -401,11 +404,13 @@ if (Meteor.isClient) {
       console.log("new_tags_list_temp",new_tags_list_temp);
       Session.set('tags_list_temp', old_tags_list_temp);
       if(text != "") {
+
         // Insert a task into the collection
-        // Dreams.insert({
-        //   tags: text,
-        //   createdAt: new Date() // current time
-        // });
+        Dreams.insert({
+          tags: text,
+          createdAt: new Date() // current time
+        });
+        console.log(Dreams);
    
         // Clear form
         event.target.tags.value = "";

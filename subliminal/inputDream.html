@@ -100,31 +100,21 @@
     }
 
   </style>
-  <div class="container-fluid" style="margin-top:50px;">
-
-    <!-- back button -->
-    <div class="header row">
-      <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
-        <a class="ion-android-arrow-back" onclick="goHome()"></a>
-      </div>
-    
-
-    <!-- title -->
+  <div class="header row">
+    <div class="col-md-4 text-left" style="margin-top:26px;">
+      <a class="ion-android-home" onclick="goHome()"></a>
+    </div>
     <div class="col-md-4 text-center" style="margin-top:26px;">
       <a href="/">Subliminal</a>
     </div>
-
-    <!-- save Dream entry -->
     <div class="col-md-4 text-right" style="margin-top:26px;">
-      <a class="ion-android-done add-dream" onclick="gotoList()"></a>
-    </div>
-
+      <a class="ion-android-done"></a>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid" style="display:none">
 
     <!-- Title input -->
-    <div class="row" style="margin-top:30px;">
+    <div class="row" style="margin-top:40px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
         <input id="title_input" class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
@@ -135,16 +125,15 @@
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Summary:</div>
       <div class="col-md-11" style="margin-top:5px;">
-        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
+        <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="What did you dream about?"></textarea>
       </div>
     </div>
 
-    <div style="margin-left:20px;">
-      <paper-date-picker-dialog></paper-date-picker-dialog>
-      <paper-button raised onClick="document.querySelectorAll('paper-date-picker-dialog')[0].open()">Open date picker dialog</paper-button>
+    <div class="row" style="margin-top:20px;">
+      <div class="category col-md-1">Date:</div>
+      <div class="col-md-9"><input style="width:115px;" type="text" id="my-datepicker" class="form-control" placeholder="mm/dd/yyyy"></div>
     </div>
 
-    <!-- picture selection -->
     <div class="dreamTemplate"> 
         <div id="dreamTemplatePicture1" class="dropzone"> </div>
         <div id="dreamTemplatePicture2" class="dropzone"> </div>
@@ -160,7 +149,7 @@
       <div class="category col-md-1" style="padding-left:15px; margin-top:30px;">
         Tags: 
       </div>
-      <div class="col-md-11">
+      <div class="col-md-11" style="width:100%;">
         <div id="sudoTable" style="width:100%; margin-top:30px;">
           <div style="width:100%">
             <form id="imagequery" class="tag-list" style="width:100%">
@@ -190,6 +179,7 @@
       $('.container-fluid').fadeIn("slow", function() {
         $('.header').fadeIn("slow");
       });
+
       $('#left').click(function() {
         event.preventDefault();
         $('.scrolls').animate({
@@ -270,5 +260,10 @@
       }
     });
 
+  </script>
+  <script>
+    Caman("#dreamTemplatePicture1", function () {
+      this.brightness(100).render();
+    });
   </script>
 </template>

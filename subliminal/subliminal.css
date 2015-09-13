@@ -1,4 +1,12 @@
 /* Color scheme being used: https://color.adobe.com/Vintage-Romantic-color-theme-2646522/edit/?copy=true&base=2&rule=Custom&selected=2&name=Copy%20of%20Vintage%20Romantic&mode=rgb&rgbvalues=0.34902,0.196078,0.235294,0.14902,0.00392157,0.14902,0.94902,0.933333,0.701961,0.74902,0.686275,0.501961,0.54902,0.411765,0.329412&swatchOrder=0,1,2,3,4 */
+html, body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 body {
   font-family: 'RobotoDraft';
   font-weight: 400 !important;
