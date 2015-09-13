@@ -16,7 +16,7 @@
     }
     #imageBar {
       position: absolute;
-      bottom: 45px;
+      bottom: 80px;
       left: 0px;
       height: 0px;
       width: 100%;
@@ -27,7 +27,7 @@
       width: auto; 
       margin: 10px 20px 10px 20px;
       position: relative;
-      z-index: 100000;
+      z-index: 2;
       overflow: visible;
     }
     div div button {
@@ -37,7 +37,7 @@
       overflow-x: scroll;
       overflow-y: hidden;
       white-space: nowrap;
-      /*overflow: hidden;*/
+      overflow: hidden;
     }
     .imageDiv img {
       box-shadow: 1px 1px 10px #999;
@@ -55,10 +55,9 @@
       position: relative;
     }
     a {
-      font-size: 40px;
-      margin-top: 5px;
+      font-size: 45px;
       cursor: pointer;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 1);
     }
     a:hover {
       text-decoration: none;
@@ -70,22 +69,22 @@
       font-weight: 400;
     }
     .dreamTemplate {
-        width: 900px;
-        height: 400px;
-        margin: 0 auto;
-        margin-top:80px;
-        background-color: #5E6A75;
+      width: 900px;
+      height: 400px;
+      margin: 0 auto;
+      margin-top:80px;
+      background-color: #5E6A75;
     }
     #dreamTemplatePicture1, #dreamTemplatePicture2, #dreamTemplatePicture3 {
-        width: 33.3333%;
-        height:100%;
-        float:left;
-        text-align: center;
-        font-size: x-large;
-        border-style: dashed;
-        border-width: 2px;
-        border-color: white;
-        overflow: hidden;
+      width: 33.3333%;
+      height:100%;
+      float:left;
+      text-align: center;
+      font-size: x-large;
+      border-style: dashed;
+      border-width: 2px;
+      border-color: white;
+      overflow: hidden;
     }
     .drop-active {
       border-color: #aaa;
@@ -95,61 +94,102 @@
       border-color: #fff;
       border-style: solid;
     }
+    #sudoTable div {
+      display:inline;
+      float:left;
+    }
 
   </style>
-  
   <div class="container-fluid" style="margin-top:50px;">
+
+    <!-- back button -->
     <div class="header row">
       <div class="col-md-4" style="margin-top:20px; margin-bottom:20px;">
         <a class="ion-android-arrow-back" onclick="goHome()"></a>
       </div>
-      <div class="col-md-4 text-center" style="font-size:45px; margin-top:20px; margin-bottom:20px;">
-        <a href="/">Subliminal</a>
-      </div>
-      <div class="col-md-4 text-right" style="margin-top:20px; margin-bottom:20px;">
-        <a class="ion-android-done"></a>
-      </div>
+    
+
+    <!-- title -->
+    <div class="col-md-4 text-center" style="margin-top:26px;">
+      <a href="/">Subliminal</a>
     </div>
-    <div class="row" style="margin-top:100px;">
+
+    <!-- save Dream entry -->
+    <div class="col-md-4 text-right" style="margin-top:26px;">
+      <a class="ion-android-done add-dream" onclick="gotoList()"></a>
+    </div>
+
+    </div>
+  </div>
+  <div class="container-fluid">
+
+    <!-- Title input -->
+    <div class="row" style="margin-top:30px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
-        <input class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
+        <input id="title_input" class="form-control floating-label" type="text" name="title" style="width:100%" placeholder="A brief description of your dream" />
       </div>
     </div>
+
+    <!-- Summary input -->
     <div class="row" style="margin-top:20px;">
       <div class="category col-md-1">Summary:</div>
       <div class="col-md-11" style="margin-top:5px;">
         <textarea class="form-control" rows="3" style="font-size:20px;" placeholder="Describe your dream"></textarea>
       </div>
     </div>
+
+    <div style="margin-left:20px;">
+      <paper-date-picker-dialog></paper-date-picker-dialog>
+      <paper-button raised onClick="document.querySelectorAll('paper-date-picker-dialog')[0].open()">Open date picker dialog</paper-button>
+    </div>
+
+    <!-- picture selection -->
     <div class="dreamTemplate"> 
         <div id="dreamTemplatePicture1" class="dropzone"> </div>
         <div id="dreamTemplatePicture2" class="dropzone"> </div>
         <div id="dreamTemplatePicture3" class="dropzone"> </div>
     </div>
     <div id="imageBar" class="wrapper">
-      <a id="left" class="ion-ios-arrow-back" style="visibility:hidden; position:absolute; bottom:70px; left:10px; color:white;"></a>
-      <a id="right" class="ion-ios-arrow-forward" style="visibility:hidden; position:absolute; bottom:70px; right:10px; color:white;"></a>
+      <a id="left" class="ion-ios-arrow-back" style="visibility:hidden; position:absolute; bottom:70px; left:10px; color:white; z-index:3;"></a>
+      <a id="right" class="ion-ios-arrow-forward" style="visibility:hidden; position:absolute; bottom:70px; right:10px; color:white; z-index:3;"></a>
       <div id="addhere" class="scrolls">
       </div>
     </div>
-    <div class="tagBar row">
+    <div class="tagBar row shadow-z-2">
       <div class="category col-md-1" style="padding-left:15px; margin-top:30px;">
         Tags: 
       </div>
       <div class="col-md-11">
-        <form id="imagequery" class="tag-list" style="margin-top:30px;">
-          <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
-        </form> 
+        <div id="sudoTable" style="width:100%; margin-top:30px;">
+          <div style="margin-right:10px;">{{> tag name="Haha"}}</div>
+          <div>
+            <form id="imagequery" class="tag-list">
+              <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <script>
     function goHome() {
-      Router.go('/');
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut();
+        $(".container-fluid").fadeOut(function() {
+          Router.go('/');
+        })
+      })
+    }
+
+    function gotoList() {
+      Router.go('/list');
     }
 
     $(document).ready(function() {
+      $('.container-fluid').fadeIn("slow", function() {
+        $('.header').fadeIn("slow");
+      });
       $('#left').click(function() {
         event.preventDefault();
         $('.scrolls').animate({

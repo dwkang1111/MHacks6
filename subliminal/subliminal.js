@@ -2,18 +2,35 @@ Dreams = new Mongo.Collection("dreams");
 var loadedimages = false;
  
 if (Meteor.isClient) {
-  // This code only runs on the client
-  // Template.body.helpers({
-  //   dreams: function () {
-  //     return Dreams.find({});
-  //   }
-  // });
 
+<<<<<<< HEAD
   palette= ['FFBD80','FFAB5D','F39239','D06E13','F34739','FF695D','FF8980','FFBD80','F39239','FFAB5D','F3B839','FFD780','FFCC5D','D09413']
 
   Template.List.helpers({
     dreams: function () {
       return Dreams.find({});
+=======
+  Template.inputDream.events({
+    "click .add-dream": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+      console.log("add-dream firing");
+ 
+      // Get value from form element
+      var title = $( "#title_input" ).val();
+      var tags = [{'name':'tag1'},{'name':'tag2'}]
+      console.log(title);
+       
+      // Insert a task into the collection
+      Dreams.insert({
+        title: title,
+        date: new Date(), // current time
+        tags: tags
+      });
+ 
+      // Clear form
+      // event.target.title.value = "";
+>>>>>>> origin
     }
   });
 
@@ -362,6 +379,7 @@ if (Meteor.isClient) {
     "submit .tag-list": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
+      console.log("sumbit tag-list firing");
       // Get value from form element
       var text = event.target.tags.value;
       if(text != "") {

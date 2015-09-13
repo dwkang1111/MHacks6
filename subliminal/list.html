@@ -1,25 +1,29 @@
 <template name="List">
   <style>
-    a.ion-android-menu {
+    a.ion-android-home {
       font-size: 40px;
       cursor: pointer;
       margin-top: 5px;
     }
+    a {
+      color: white;
+    }
     a:hover{
       text-decoration: none;
+      color: white;
     }
   </style>
-  <div class="header row">
-    <div class="col-md-4 col-sm-4 text-left">
-      <a class="ion-android-menu" onclick="goHome()"></a>
+  <div class="header row" style="display:none;">
+    <div class="col-md-4 col-sm-4 text-left" style="margin-top:26px;">
+      <a class="ion-android-home" style="margin-left:10px;" onclick="goHome()"></a>
     </div>
-    <div class="col-md-4 col-sm-4 text-center" style="font-size:40px;">
+    <div class="col-md-4 col-sm-4 text-center" style="font-size:45px; margin-top:26px;">
       <a onclick="goHome()" style="cursor:pointer;">Subliminal</a>
     </div>
-    <div class="col-md-4 col-sm-4 text-right">
+    <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
     </div>
   </div>
-  <div class="container" style="width:1000px; margin-top:20px;">
+  <div class="container" style="width:1000px; margin-top:30px; display:none;">
     <div style="width:100%;">
 
       {{#each dreams}}
@@ -36,8 +40,18 @@
   </div>
   <script>
     function goHome () {
-      Router.go('/');
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut();
+        $(".container").fadeOut(function() {
+          Router.go('/');
+        })
+      })
     }
+    $(document).ready(function() {
+      $('.header').fadeIn("slow", function() {
+        $('.container').fadeIn("slow");
+      });
+    })
   </script>
 </template>
 
@@ -60,11 +74,10 @@
   </style>
   <div class="mod row">
     <div class="col-md-3 col-sm-3">
-      Aug. 2, 2015 
       {{date}}
     </div>
     <div class="col-md-8 col-sm-8">
-      Title would go here 
+      Title:
       {{title}}
     </div>
     <div class="col-md-1 col-sm-1 text-right" style="padding-right:0">
@@ -84,6 +97,11 @@
             <td>
               {{> tag name="sleep"}}
             </td>
+            {{#each tags}}
+              <td>
+                {{> tag}}
+              </td>
+            {{/each}}
           </tr>
         </table>
       </div>

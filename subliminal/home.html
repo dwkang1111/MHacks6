@@ -135,15 +135,47 @@
 
   <script>
     function goList() {
-      Router.go('/list');
+      $('#historyBtn').fadeOut("slow", function() {
+        $('#aboutBtn').fadeOut("fast", function() {
+          $('.container-fluid').fadeOut(function() {
+            Router.go('/list');
+          })
+        })
+      })
     }
     function goAbout() {
-      Router.go('/about');
+      $('#historyBtn').fadeOut("slow");
+      $('#aboutBtn').fadeOut("slow", function(){
+        $('.container-fluid').fadeOut(function() {
+          Router.go('/about');
+        });
+      });
     }
+    $(document).ready(function() {
+      $('.container-fluid').fadeIn("slow", function() {
+        $('#record').fadeIn("slow");
+      });
+      $('#record').hover(function() {
+        $(this).addClass("shadow-z-5");
+        $(this).removeClass("shadow-z-2");
+      }, function() {
+        $(this).addClass("shadow-z-2");
+        $(this).removeClass("shadow-z-5");
+      })
+      $('#record').mousedown(function() {
+        $(this).removeClass("shadow-z-5");
+        $(this).mouseup(function() {
+          $("#plus").removeClass("ion-android-add");
+          $(this).fadeOut("slow", function() {
+            $(".container-fluid").fadeOut(function() {
+              Router.go('/input');
+            })
+          })
+        })
+      })
+    })
   </script>
 </template>
-
-
 
 <template name="logout">
   <a style="color:yellow" class="logout">Logout</a>
