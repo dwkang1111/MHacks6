@@ -11,7 +11,6 @@ if (Meteor.isClient) {
             password: password,
             profile: {
               username: username,
-              dreams: []
             }
         }, 
         function(error){

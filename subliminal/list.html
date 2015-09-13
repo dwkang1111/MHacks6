@@ -21,12 +21,17 @@
   </div>
   <div class="container" style="width:1000px; margin-top:20px;">
     <div style="width:100%;">
-      {{> module}}
-      {{> module}}
-      {{> module}}
-      {{> module}}
-      {{> module}}
-      {{> module}}
+
+      {{#each dreams}}
+        {{> dream}}
+      {{/each}}
+
+      {{> dream}}
+      {{> dream}}
+      {{> dream}}
+      {{> dream}}
+      {{> dream}}
+      {{> dream}}
     </div>
   </div>
   <script>
@@ -37,8 +42,7 @@
 </template>
 
 
-
-<template name="module">
+<template name="dream">
   <style>
     .mod {
       width: 100%;
@@ -57,9 +61,11 @@
   <div class="mod row">
     <div class="col-md-3 col-sm-3">
       Aug. 2, 2015 
+      {{date}}
     </div>
     <div class="col-md-8 col-sm-8">
       Title would go here 
+      {{title}}
     </div>
     <div class="col-md-1 col-sm-1 text-right" style="padding-right:0">
       <i class="ion-android-close"></i>

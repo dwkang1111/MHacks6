@@ -30,6 +30,9 @@
       top: 10px;
       color: white;
     }
+    button {
+      color: white !important;
+    }
     a:hover {
       text-decoration: none;
     }
@@ -46,8 +49,8 @@
   
   <div class="container-fluid">
     <div class="text-right nav" style="font-size:25px;">
-      <a href="/list" style="margin-right:10px;">history</a>
-      <a href="/about">about</a>
+      <button class="btn btn-default btn-flat" style="margin-right:10px;" onclick="goList()">history</button>
+      <button class="btn btn-default btn-flat" onclick="goAbout()">about</button>
     </div>
     {{#if currentUser}}
        <div>I am Logged In!</div>
@@ -59,30 +62,15 @@
     </div>
     <!-- How do I animate multiple divs easily? -->
     <div class="random"></div>
-    <div class="random"></div>
   </div>
 
   <script>
-    $(document).ready(function(){
-      // animateDiv();
-      
-    });
-
-    // function makeNewPosition(){
-    //   // Get viewport dimensions (remove the dimension of the div)
-    //   var h = $(window).height() - 50;
-    //   var w = $(window).width() - 50;
-    //   var nh = Math.floor(Math.random() * h);
-    //   var nw = Math.floor(Math.random() * w);
-    //   return [nh,nw];
-    // }
-
-    // function animateDiv(){
-    //   var newq = makeNewPosition();
-    //   $('.random').animate({ top: newq[0], left: newq[1] }, "slow", function(){
-    //     animateDiv();
-    //   });
-    // };
+    function goList() {
+      Router.go('/list');
+    }
+    function goAbout() {
+      Router.go('/about');
+    }
   </script>
 </template>
 
