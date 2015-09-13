@@ -103,7 +103,7 @@
   
   <div class="header row">
     <div class="col-md-4 text-left" style="margin-top:26px;">
-      <a class="ion-android-arrow-back" onclick="goHome()"></a>
+      <a class="ion-android-home" onclick="goHome()"></a>
     </div>
     <div class="col-md-4 text-center" style="margin-top:26px;">
       <a href="/">Subliminal</a>
@@ -112,7 +112,7 @@
       <a class="ion-android-done"></a>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid" style="display:none">
     <div class="row" style="margin-top:40px;">
       <div class="category col-md-1">Title:</div>
       <div class="col-md-11">
@@ -154,10 +154,17 @@
   </div>
   <script>
     function goHome() {
-      Router.go('/');
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut();
+        $(".container-fluid").fadeOut(function() {
+          Router.go('/');
+        })
+      })
     }
-
     $(document).ready(function() {
+      $('.container-fluid').fadeIn("slow", function() {
+        $('.header').fadeIn("slow");
+      });
       $('#left').click(function() {
         event.preventDefault();
         $('.scrolls').animate({

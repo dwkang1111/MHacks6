@@ -13,7 +13,7 @@
       color: white;
     }
   </style>
-  <div class="header row">
+  <div class="header row" style="display:none;">
     <div class="col-md-4 col-sm-4 text-left" style="margin-top:26px;">
       <a class="ion-android-home" style="margin-left:10px;" onclick="goHome()"></a>
     </div>
@@ -23,7 +23,7 @@
     <div class="col-md-4 col-sm-4 text-right" style="margin-top:26px;">
     </div>
   </div>
-  <div class="container" style="width:1000px; margin-top:30px;">
+  <div class="container" style="width:1000px; margin-top:30px; display:none;">
     <div style="width:100%;">
 
       {{#each dreams}}
@@ -40,8 +40,18 @@
   </div>
   <script>
     function goHome () {
-      Router.go('/');
+      $(".ion-android-home").fadeOut("slow", function() {
+        $(".header").fadeOut();
+        $(".container").fadeOut(function() {
+          Router.go('/');
+        })
+      })
     }
+    $(document).ready(function() {
+      $('.header').fadeIn("slow", function() {
+        $('.container').fadeIn("slow");
+      });
+    })
   </script>
 </template>
 
