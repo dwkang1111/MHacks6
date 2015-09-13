@@ -162,12 +162,12 @@
       </div>
       <div class="col-md-11">
         <div id="sudoTable" style="width:100%; margin-top:30px;">
-          <div style="margin-right:10px;">{{> tag name="Haha"}}</div>
-          <div>
-            <form id="imagequery" class="tag-list">
+          <div style="width:100%">
+            <form id="imagequery" class="tag-list" style="width:100%">
               <input class="form-control" placeholder="Keywords to describe your dream" type="text" name="tags" style="width:100%"/>
             </form>
           </div>
+          <div style="margin-right:10px;">{{> tag name="Haha"}}</div>
         </div>
       </div>
     </div>
@@ -270,5 +270,10 @@
       }
     });
 
+  </script>
+  <script>
+    Caman("#dreamTemplatePicture1", function () {
+      this.brightness(100).render();
+    });
   </script>
 </template>
