@@ -1,0 +1,61 @@
+TOP 3
+1.)Relay
+2.)Smartify
+3.)SmartShower
+
+
+Best Sustainable - Water Pipe
+Best Use of Walmart API - Snap
+Best Security - 
+Best eCommerce Hack - Pantry
+Best use fof Stream - Stream Point
+Expedia API - Gateway flight book
+Qualtrics: visualize data -polar reminders
+Best use of Namecheap API - fingeryoda
+Linkedin Projessional Hack - Stream Point
+American Express (Collaboration on a Project) - 
+Best Domain.com Domain Name - kantare
+Best Pebble Hack((MLH)- down...
+Wolfram Tech - Fusion Furniture
+1st - Speak
+2nd - Mooooooodify
+3rd - Flex Duck
+Best use of Twilio - Smartify
+Best use of Uber API - Garden...Gottit
+Nest -Bees
+MongoDB - Bio Off
+Best use of GUN - GunPac
+Best Business Solution App Leveraging Open Source - Highlight
+Ford Best Mobile App Award - Journey
+Best Use of Firebase - Relay
+Best Use of Parse API 
+	1.) Gateway
+	2.) Glass Four
+EA Judge's Choice - M...
+EA Player's Choice- Potter League
+Delta BEst Travel Hack
+	-Halfway
+	-Share the Love
+DIRECTV's API (most innovative)
+	-livesaver
+	-TV Talk
+Concur Best Money Saving App - Audibot
+Capital One API - CarTracker
+Bloomeberg (Best use of Analytics & Analysis) - Job Choice
+Microsoft Azure - Antibot (?)
+Best Microsoft Tech - Innovation Insight
+Best IOS App
+	-Gateway
+	-JoyRide
+Top Hack Using .CO - Relay
+Best Hardware Hack - LaserCom
+Best VR/Game Design Hack - Track2Note
+Best Web Dev Hack - Dually Noted (?)
+Best Android App - Journey
+Best Social Impact Hack - Audibot
+
+
+Demo
+- (Auto login app using phone fingerprint)
+- Smart Shower App
+-Smartify
